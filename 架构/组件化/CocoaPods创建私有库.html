@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="CocoaPods,组件化,">
+  <meta name="keywords" content="组件化,CocoaPods,">
 
 
 
@@ -89,7 +89,7 @@
 
 
 <meta name="description" content="关于CocoaPods做过iOS开发的小伙伴一定对CocoaPods不会陌生，其实CocoaPods不仅可以作为第三方库的管理工具，还可以很方便的创建和维护自己的私有仓库，实现复杂项目的插件化开发模式。不文不介绍CocoaPods的安装和基本用法，以及如何把代码提交到CocoaPods的公有仓库，想了解这些的小伙伴可以查看笔者CocoaPods标签下的其它相关文章。  注意：本文的所有代码以创建在">
-<meta name="keywords" content="CocoaPods,组件化">
+<meta name="keywords" content="组件化,CocoaPods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CocoaPods创建私有库">
 <meta property="og:url" content="http://blog.astudyer.com/架构/组件化/CocoaPods创建私有库.html">
@@ -367,7 +367,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/架构/组件化/CocoaPods创建私有库.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/架构/组件化/CocoaPods创建私有库.html" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="架构/组件化/CocoaPods创建私有库.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -489,9 +489,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CocoaPods/" rel="tag"># CocoaPods</a>
-          
             <a href="/tags/组件化/" rel="tag"># 组件化</a>
+          
+            <a href="/tags/CocoaPods/" rel="tag"># CocoaPods</a>
           
         </div>
       
@@ -547,9 +547,12 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     </div>
 
   
@@ -844,6 +847,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://aStudyer.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://blog.astudyer.com/架构/组件化/CocoaPods创建私有库.html';
+          this.page.identifier = '架构/组件化/CocoaPods创建私有库.html';
+          this.page.title = 'CocoaPods创建私有库';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aStudyer.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -859,54 +882,8 @@
 
 
 
-  
 
 
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: '27911329',
-            repo: 'Gitment',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'b871f4a57d86aa7c1ce377997f4fcae92413a1f8',
-            
-                client_id: 'e1810671273658d23720'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
