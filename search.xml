@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>OC语言系列——Protocol(协议)及Delegate(委托代理)</title>
-    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Protocol(%E5%8D%8F%E8%AE%AE)%E5%8F%8ADelegate(%E5%A7%94%E6%89%98%E4%BB%A3%E7%90%86).html</url>
-    <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt><br>因为Objective-C是不支持多继承的，所以很多时候都是用Protocol代替。Protocol（协议）只是定义公用的一套接口，但不提供具体的实现方法。当一个类要使用某个Protocol（协议）时，就必须要遵守协议，实现协议需要用到委托代理（Delegate）。<br>Protocol（协议）的作用：</p>
-<ol>
-<li><p>定义一套公用的接口（Public）</p>
-<ul>
-<li>@required：必须实现的方法（实际上也可以不实现，程序依然也可以运行，只是会有警告）</li>
-<li><p>@optional：可选 实现的方法</p>
-<pre><code>//conformsToProtocol：判断是否遵守了某个协议
-if ([conformsToProtocol:@protocol(协议名)]){
-}
-//respondsToSelector：判断是否实现了某个方法
-if([stu respondsToSelector:@selector(方法名)]){
-}
-</code></pre></li>
-</ul>
-</li>
-<li><p>委托代理（Delegate）传值：<br>它本身是一个设计模式，它的意思是委托别人去做某事。 </p>
-</li>
-</ol>
-<blockquote>
-<p>1、当需要定义一套公用的接口，实现方法可以是不同的时候，可以使用Protocol协议。<br>2、当需要进行类与类之间的传值时，可以基于Protocol协议，使用代理设计模式进行传值。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Objective-C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OC语言系列——Block</title>
     <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Block.html</url>
     <content><![CDATA[<p><img src="/img/2018/OC/block.jpg" alt></p>
@@ -222,6 +190,51 @@ __block在ARC下只有一个作用
       </tags>
   </entry>
   <entry>
+    <title>OC语言系列——Protocol(协议)及Delegate(委托代理)</title>
+    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Protocol(%E5%8D%8F%E8%AE%AE)%E5%8F%8ADelegate(%E5%A7%94%E6%89%98%E4%BB%A3%E7%90%86).html</url>
+    <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt><br>因为Objective-C是不支持多继承的，所以很多时候都是用Protocol代替。Protocol（协议）只是定义公用的一套接口，但不提供具体的实现方法。当一个类要使用某个Protocol（协议）时，就必须要遵守协议，实现协议需要用到委托代理（Delegate）。<br>Protocol（协议）的作用：</p>
+<ol>
+<li><p>定义一套公用的接口（Public）</p>
+<ul>
+<li>@required：必须实现的方法（实际上也可以不实现，程序依然也可以运行，只是会有警告）</li>
+<li><p>@optional：可选 实现的方法</p>
+<pre><code>//conformsToProtocol：判断是否遵守了某个协议
+if ([conformsToProtocol:@protocol(协议名)]){
+}
+//respondsToSelector：判断是否实现了某个方法
+if([stu respondsToSelector:@selector(方法名)]){
+}
+</code></pre></li>
+</ul>
+</li>
+<li><p>委托代理（Delegate）传值：<br>它本身是一个设计模式，它的意思是委托别人去做某事。 </p>
+</li>
+</ol>
+<blockquote>
+<p>1、当需要定义一套公用的接口，实现方法可以是不同的时候，可以使用Protocol协议。<br>2、当需要进行类与类之间的传值时，可以基于Protocol协议，使用代理设计模式进行传值。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OC语言系列——关于变量</title>
+    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8F.html</url>
+    <content><![CDATA[<p>变量可以分为全局变量、静态全局变量、静态局部变量和局部变量</p>
+<p>按存储区域分：全局变量、静态全局变量和静态局部变量都存放在内存的全局数据区，局部变量存放在内存的栈区<br>按作用域分：全局变量在整个工程文件内都有效；静态全局变量只在定义它的文件内有效；静态局部变量只在定义它的函数内有效，只是程序仅分配一次内存，函数返回后，该变量不会消失；局部变量在定义它的函数内有效，但是函数返回后失效。</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OC语言系列——Category</title>
     <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Category.html</url>
     <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt></p>
@@ -261,10 +274,56 @@ __block在ARC下只有一个作用
       </tags>
   </entry>
   <entry>
-    <title>OC语言系列——关于变量</title>
-    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8F.html</url>
-    <content><![CDATA[<p>变量可以分为全局变量、静态全局变量、静态局部变量和局部变量</p>
-<p>按存储区域分：全局变量、静态全局变量和静态局部变量都存放在内存的全局数据区，局部变量存放在内存的栈区<br>按作用域分：全局变量在整个工程文件内都有效；静态全局变量只在定义它的文件内有效；静态局部变量只在定义它的函数内有效，只是程序仅分配一次内存，函数返回后，该变量不会消失；局部变量在定义它的函数内有效，但是函数返回后失效。</p>
+    <title>OC语言系列——基础篇</title>
+    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%AF%87.html</url>
+    <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt>    </p>
+<h2 id="面向对象性"><a href="#面向对象性" class="headerlink" title="面向对象性"></a>面向对象性</h2><p>OC语言是面对对象的</p>
+<h2 id="关于类"><a href="#关于类" class="headerlink" title="关于类"></a>关于类</h2><p>OC中类的设计包括三个方面：类名、类的属性和方法</p>
+<h2 id="关于对象"><a href="#关于对象" class="headerlink" title="关于对象"></a>关于对象</h2><p>每个对象内部都默认有一个隐藏的isa指针指向这个对象所使用的类<br><code>创建过程</code>：调用alloc方法在内存中为对象开辟一块内存空间，调用init方法进行初始化，每个对象都有一份属于自己的单独的成员变量，所有的对象公用类的成员方法，方法在整个内存中只有一份，类本身在内存中占据一份存储空间，类的方法存储于此。</p>
+<h2 id="消息机制"><a href="#消息机制" class="headerlink" title="消息机制"></a>消息机制</h2><p>在OC中，对象对方法的调用称为消息机制，即向既定的对象发送了什么消息。<br><code>[p eat];</code>表示给p所指向的对象发送一条eat消息，调用对象的eat方法，此时对象会顺着内部的isa指针找到存储于类中的方法(先去缓存中去取，缓存中没有再去类的内存中找)，执行。<br><code>点语法的本质</code>：调用属性的setter和getter方法</p>
+<h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p><strong>@public</strong>：全局可以访问<br><strong>@protected</strong>：只能在类内部和子类中访问<br><strong>@private</strong>：只能在类内部访问</p>
+<blockquote>
+<p>注意：<code>.h</code>中的成员变量的默认作用域是<code>@protected</code><br><code>.m</code>中的成员变量不管作用域写为什么，子类都不能访问，即被强制为<code>@private</code></p>
+</blockquote>
+<h2 id="property关键字"><a href="#property关键字" class="headerlink" title="@property关键字"></a>@property关键字</h2><ul>
+<li><p>在xcode4.5之前，可以让编译器自动生成属性的setter和getter方法的<code>声明</code></p>
+<pre><code>@proterty int age;// 等价于下面2行
+- (void)setAge:(int)newAge;// setter
+- (int)age;    // getter
+</code></pre></li>
+<li><p>在xcode4.5(包括)之后，可以让编译器自动生成属性的setter和getter方法的<code>声明</code>和<code>实现</code>(会访问带下划线的同名的成员变量，如果没有则自动创建一个带下划线的同名的私有成员变量，并为该变量生成getter和setter方法)</p>
+<pre><code>@proterty int age;// 等价于下面8行
+- (void)setAge:(int)newAge;// setter声明
+- (int)age;    // getter声明
+- (void)setAge:(int)newAge{// setter实现
+    _age = newAge;
+}
+- (int)age{// getter实现
+    return _age;
+}        
+</code></pre></li>
+</ul>
+<h2 id="synthesize关键字"><a href="#synthesize关键字" class="headerlink" title="@synthesize关键字"></a>@synthesize关键字</h2><p><strong>示例用法</strong>：<code>@synthesize name = _goodName;</code><br><strong>默认情况</strong>：<code>@synthesize name;</code>等价于<code>@synthesize name = _name;</code><br>让编译器自动生成同名属性<code>name</code>的setter和getter方法的<code>声明</code>和<code>实现</code>，并访问成员变量<code>_goodName</code>，如果没有则创建一个私有成员变量<code>_goodName</code>，默认情况访问成员变量<code>_name</code>;</p>
+<pre><code>@synthesize age;// 等价于下面6行
+- (void)setAge:(int)newAge{// setter实现
+    _age = newAge;
+}
+- (int)age{// getter实现
+    return _age;
+}
+
+@synthesize age = _goodName;// 等价于下面6行
+- (void)setAge:(int)newAge{// setter实现
+    _goodName = newAge;
+}
+- (int)age{// getter实现
+    return _goodName;
+}
+</code></pre><blockquote>
+<p><strong>注意</strong>：<br>1、如果实现自定义的setter方法，@property就不会帮我们生成它的setter方法，但仍然会帮我们生成getter方法和私有的成员变量<br>2、如果实现自定义的getter方法，@property就不会帮我们生成它的getter方法，但仍然会帮我们生成setter方法和私有的成员变量<br>3、如果你实现了setter和getter方法，@property就不会帮我们生成它的setter和getter方法，同时也不会生成私有成员变量了，需要自己手动添加该成员变量或者手动实现@synthesize name = _name方法。</p>
+</blockquote>
+<h2 id="关于self"><a href="#关于self" class="headerlink" title="关于self"></a>关于self</h2><p><strong>在对象方法中使用</strong>：指的是该对象<br><strong>在类方法中使用</strong>：指的是该类本身</p>
+<h2 id="成员变量和属性的区别"><a href="#成员变量和属性的区别" class="headerlink" title="成员变量和属性的区别"></a>成员变量和属性的区别</h2><p>操作成员变量需要用<code>-&gt;</code>，@property生成属性仅仅是帮我们自动生成了私有成员变量和set和get方法，而set和get方法本质还是操作成员变量，而属性则可以让我们方便的用点语法访问该属性（本质也就是操作成员变量），@synthesize则可以通过@synthesize name = alias_name的方式改变set和get方法操作的具体成员变量。</p>
 ]]></content>
       <categories>
         <category>iOS</category>
@@ -448,6 +507,138 @@ __block在ARC下只有一个作用
       </tags>
   </entry>
   <entry>
+    <title>测试</title>
+    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/%E6%B5%8B%E8%AF%95.html</url>
+    <content><![CDATA[<p>晚安！！！</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS 开发技巧 - 实时访问真机沙盒文件</title>
+    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/iOS-%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7-%E5%AE%9E%E6%97%B6%E8%AE%BF%E9%97%AE%E7%9C%9F%E6%9C%BA%E6%B2%99%E7%9B%92%E6%96%87%E4%BB%B6.html</url>
+    <content><![CDATA[<h3 id="1-想要解决的问题"><a href="#1-想要解决的问题" class="headerlink" title="1.想要解决的问题"></a>1.想要解决的问题</h3><blockquote>
+<p>iOS开发过程中经常需要访问沙盒文件来调试持久化文件,数据库文件,缓存文件等.模拟器一般可以通过<br><a href="https://simpholders.com/" target="_blank" rel="noopener">SimPholders</a>或者<a href="https://github.com/dsmelov/simsim" target="_blank" rel="noopener">simsim</a>等来方便的访问沙盒.但是真机并没有一个方便快捷的访问修改方法,因此,很多时候,我们需要测试沙盒的时候不得不去使用模拟器来替代真机.那么有没有什么方法去直接<code>访问真机的沙盒</code>呢?</p>
+</blockquote>
+<h3 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2.解决方案"></a>2.解决方案</h3><p>说到访问真机沙盒,首先要给大家介绍一款框架<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">GCDWebServer</a>,利用这款框架,你可以很方便的用<code>浏览器</code>实时的访问你真机的沙盒.</p>
+<h3 id="3-集成方法"><a href="#3-集成方法" class="headerlink" title="3.集成方法"></a>3.集成方法</h3><p>方案一. 可以用过cocoapods集成<br>方案二. 可以用过手动集成</p>
+<h3 id="4-集成步骤"><a href="#4-集成步骤" class="headerlink" title="4.集成步骤"></a>4.集成步骤</h3><p>由于笔者是通过手动集成的,这里着重介绍下<code>手动集成</code>方案,通过cocoapods集成方法大同小异,具体可以看官方文档</p>
+<ol>
+<li>首先在github上下载<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">源码</a></li>
+<li>然后把GCDWebServer和GCDWebUploader这两个文件夹拖到项目中<br><img src="/img/2017/iOS/skill_shahe_step2.jpg" alt="步骤2"></li>
+<li>在Target &gt; Build Phases &gt; Link Binary With Libraries里面加入<code>libz.tbd</code>库</li>
+<li>在Target &gt; Build Settings &gt; header_search_paths里面添加<code>$(SDKROOT)/usr/include/libxml2</code></li>
+<li><p>在AppDelegate.m里面引入头文件</p>
+<pre><code>#import &quot;HCViewController.h&quot;
+#import &quot;GCDWebUploader.h&quot;
+</code></pre></li>
+<li><p>在AppDelegate.m的- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions方法中添加如下代码</p>
+<pre><code>//1.想要访问的沙盒路径
+NSString *myDocPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+//2.初始化服务器
+_server = [[GCDWebUploader alloc] initWithUploadDirectory:myDocPath];
+//3.启动服务器(port代表端口号)
+[_server startWithPort:9090 bonjourName:@&quot;&quot;];
+
+//other code……
+</code></pre></li>
+<li>运行项目,如果你在控制台看到如下信息,那么恭喜你,你已经成功了<br><img src="/img/2017/iOS/skill_shahe_result.jpg" alt="运行结果"></li>
+<li>接下来只需要在浏览器中输入控制台打印出来的路径(输入IP那个)就可以在浏览器中访问你APP的沙盒了<br><img src="/img/2017/iOS/skill_shahe.png" alt="效果演示"></li>
+</ol>
+<h3 id="接下来尽情的享受你的沙盒之旅吧"><a href="#接下来尽情的享受你的沙盒之旅吧" class="headerlink" title="接下来尽情的享受你的沙盒之旅吧!"></a>接下来尽情的享受你的沙盒之旅吧!</h3>]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>沙盒</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深入理解iOS中的frame和bounds</title>
+    <url>/iOS/OC%E8%BF%9B%E9%98%B6/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3iOS%E4%B8%AD%E7%9A%84frame%E5%92%8Cbounds.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在iOS开发界面的过程中，frame和bounds是两个非常常用的属性，这是两个非常容易混淆的概念，我们虽然经常用，但如果不清楚其原理，遇到了一些莫名其妙的问题可能会使我们不知所措，本来就将通过两个特殊场景来详细介绍一下二者的本质及区别。</p>
+<h2 id="场景一（关于frame）"><a href="#场景一（关于frame）" class="headerlink" title="场景一（关于frame）"></a>场景一（关于frame）</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> screen_width = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width;</span><br><span class="line">    <span class="built_in">CGFloat</span> screen_height = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *bgView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    bgView.frame = <span class="built_in">CGRectMake</span>((screen_width - <span class="number">200</span>) * <span class="number">0.5</span>, (screen_height - <span class="number">200</span>) * <span class="number">0.5</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    bgView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:bgView];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *subView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    subView.backgroundColor = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">    subView.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    [bgView addSubview:subView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>代码是不是很简单，仔细看一下，然后想象一下运行出来的效果，和下面的图形对照一下，看看和你想象的是不是一样。<br><img src="http://p2utrpfbk.bkt.clouddn.com/frame_bounds_cj1_result.jpeg" alt></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>那么为什么黄色视图不是从红色视图的左上角位置出现呢？</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>因为frame是<code>center</code>+<code>size</code>的组合模式，如果不设置center或者origin的话，那么默认center是CGPointZero，所以会出现上述状况。由此可知，改变origin的本质其实也是改变center。</p>
+<h2 id="场景二（关于bounds）"><a href="#场景二（关于bounds）" class="headerlink" title="场景二（关于bounds）"></a>场景二（关于bounds）</h2><h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> screen_width = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width;</span><br><span class="line">    <span class="built_in">CGFloat</span> screen_height = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *bgView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    bgView.frame = <span class="built_in">CGRectMake</span>((screen_width - <span class="number">200</span>) * <span class="number">0.5</span>, (screen_height - <span class="number">200</span>) * <span class="number">0.5</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    bgView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:bgView];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *middleView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    middleView.backgroundColor = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">    middleView.frame = <span class="built_in">CGRectMake</span>((bgView.frame.size.width - <span class="number">100</span>) * <span class="number">0.5</span>, (bgView.frame.size.height - <span class="number">100</span>) * <span class="number">0.5</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="comment">//注意这一行代码</span></span><br><span class="line">    middleView.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    [bgView addSubview:middleView];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *smallView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    smallView.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">    smallView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    [middleView addSubview:smallView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样的，这个场景非常的简单，看完代码，你马上就可以在脑子里把UI效果构建出来。</p>
+<h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>问题是如果把其中的第<code>16</code>行代码修改为<code>middleView.bounds = CGRectMake(-50, -50, 100, 100);</code>会产生什么要的效果呢？</p>
+<h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><p>实际效果如下图所示，看看和你想的是不是一样？然后想想一下为什么会出现这种现象？<br><img src="http://p2utrpfbk.bkt.clouddn.com/frame_bounds_cj2_result.jpeg" alt><br>可以发现，红色和黄色视图的位置不受影响，符合预期，绿色视图的frame的origin虽然设置为<code>{0,0}</code>，但是并没有出现在的黄色视图的左上角位置，而是向右大概偏移了50个像素，很显然，上面改动的第<code>16</code>行代码对绿色视图出现的位置造成了影响。</p>
+<h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h3><p>事实上，bounds的<code>x</code>和<code>y</code>这两个参数描述的是自身左上角的那个点在本地坐标系中的坐标，默认情况下是<code>{0,0}</code>，如果设置为非零值，则会把该点的坐标强制转化为该非零值，上面16行中把该点坐标设置为<code>{-50,-50}</code>，所以该点坐标在本地坐标系中变为{-50,-50}，如果绿色视图想要在黄色视图的左上角位置出现，则需要把自身的origin设置为<code>{-50,-50}</code>，但是实际上我们给绿色视图的origin设置的是<code>{0,0}</code>，所以出现了上面向右偏移50个像素的现象。又因为改变的是黄色视图的本地坐标系，所以其父视图和自身不受影响。<br>综上，<code>bounds的x和y的值会影响其子视图出现的位置</code>。</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一台电脑如何绑定多个github账号</title>
+    <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E5%85%B6%E5%AE%83/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7.html</url>
+    <content><![CDATA[<h3 id="什么-你还没有一个GitHub账号-😱"><a href="#什么-你还没有一个GitHub账号-😱" class="headerlink" title="什么,你还没有一个GitHub账号?😱"></a>什么,你还没有一个GitHub账号?😱</h3><p>作为一名程序员,我想你大概99.9%的可能听说过<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.如果把优秀的代码比作美女,那[GitHub]上说是美女云集真是一点也不过分啊!如果你到现在还没有一个github账号.那么兄弟我真的劝你赶紧去<a href="https://github.com/" target="_blank" rel="noopener">注册</a>一个去.</p>
+<h3 id="我不但有-而且不止一个-就是任性😏"><a href="#我不但有-而且不止一个-就是任性😏" class="headerlink" title="我不但有,而且不止一个,就是任性😏"></a>我不但有,而且不止一个,就是任性😏</h3><p>而对于那些经常和github打交道的小伙伴,就好像有的人会有2个QQ号,一个工作时候用,一个私下用一样,部分朋友可能会同时经营着2个GitHub账号.可是申请完第二个账号,还没来得及嘚瑟,这些小伙伴就在使用的时候可能就遇到了当头一棒,那就是两个账号没法在一个电脑上同时操作(指的是用ssh操作,通过https操作的除外),遇到过这个问题的小伙伴都懂的,不再过多解释.</p>
+<h3 id="告诉你一个好消息和一个好消息-你先听哪个-😆"><a href="#告诉你一个好消息和一个好消息-你先听哪个-😆" class="headerlink" title="告诉你一个好消息和一个好消息,你先听哪个?😆"></a>告诉你一个好消息和一个好消息,你先听哪个?😆</h3><p>其实上述问题是有解决方案的,也很简单.接下来就一步步教你如何解决这个问题,愉快的让多个github账号在你的电脑上和谐共存,无不干扰.</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li>首先由2个github账号,假设一个账号为one,另一个账号为two</li>
+<li>取消git全局设置<br><code>$ git config --global --unset user.name</code><br><code>$ git config --global --unset user.email</code></li>
+</ul>
+<h3 id="SSH配置"><a href="#SSH配置" class="headerlink" title="SSH配置"></a>SSH配置</h3><ul>
+<li>生成两对RSA密钥对<br><code>$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code><br>如果直接回车,会默认放在~/.ssh目录下,并且命名为id_rsa(私钥)和id_rsa.pub(公钥)<br>当然你也可以输入不一样的文件名,比如github_one和github_two<br>配置完成后,输入一些命令查看你电脑上所有的</li>
+</ul>
+<h3 id="登录github添加公钥"><a href="#登录github添加公钥" class="headerlink" title="登录github添加公钥"></a>登录github添加公钥</h3><p>分别登录one,two的账号,在<code>Settings</code>-&gt;<code>SSH and GPG keys</code>点击<code>New SSH key</code>,把生成的公钥(.pub文件)内容粘贴到“Key”中,并输入“Title”.<br>可以在添加前使用下面命令删除所有的key<br><code>$ ssh-add -D</code></p>
+<h3 id="修改ssh-config文件"><a href="#修改ssh-config文件" class="headerlink" title="修改ssh config文件"></a>修改ssh config文件</h3><p><code>$ cd ~/.ssh/</code><br><code>$ touch config</code><br><code>$ open config</code><br>然后在打开的config文件里面,输入以下内容</p>
+<pre><code># one
+Host one.github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/github_one
+
+# two
+Host two.github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/github_two
+</code></pre><p>其中的Host默认的是github.com,但是可以任意写.如果不这样设置,push时会出现以下错误:<br><code>ERROR: Permission to two/two.github.com.git denied to one.</code><br>分析一下git提交时候的ssh链接,我们可以发现该链接实际上是由这样几个部分组成的:<br>git@Host:用户名/项目名.git,很明显,git是通过其中的Host来识别使用哪个本地私钥的。如果Host始终为github.com，那么就只能使用一个私钥,那么也就无法在使用ssh连接时区别不同的账号了.</p>
+<h3 id="添加ssh-key"><a href="#添加ssh-key" class="headerlink" title="添加ssh key"></a>添加ssh key</h3><p>通过下面的命令,可以查看当前所有的key<br><code>$ ssh-add -l</code><br>如果发现刚才添加的key没有在列表中,可以使用以下指令进行添加<br><code>$ ssh-add -K ~/.ssh/github_one</code><br><code>$ ssh-add -K ~/.ssh/github_two</code><br>使用<code>-K</code>可以将私钥添加到钥匙串，不用每次开机后还要再次输入这条命令了</p>
+<h3 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h3><p><code>$ ssh -T git@one.github.com        # 测试one ssh连接</code><br><code>$ ssh -T git@two.github.com        # 测试two ssh连接</code><br>如果分别出现以下结果,证明连接成功<br><code>#Hi one! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code><br><code>#Hi two! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<h3 id="新建git项目或者clone已有项目"><a href="#新建git项目或者clone已有项目" class="headerlink" title="新建git项目或者clone已有项目"></a>新建git项目或者clone已有项目</h3><ul>
+<li>可以用 git init 或者 git clone 创建本地项目</li>
+<li><p>分别在one和two的git项目目录下，使用下面的命令设置账号关联</p>
+<pre><code>git config user.name &quot;__name__&quot;            # __name__ 例如 one
+git config user.email &quot;__email__&quot;          # __email__ 例如 one@163.com
+</code></pre><p>查看git项目的配置(在当前项目目录下)<br><code>$ git config --list</code><br>修改提交路径,比如在one的项目demo下</p>
+<pre><code>git remote rm origin
+git remote add origin git@one.github.com:one/demo.git
+</code></pre><p>当然以上设置也可以不用命令行,直接在项目目录下<br><code>$ ls -a</code><br>你会发现在项目目录下有一个隐藏的.git文件夹,cd到这个文件夹,会发现里面有一个config文件<br>,打开该config文件,可以直接在里面修改远程路径,添加用户名和邮箱等</p>
+<pre><code>$ cd .git
+$ open config
+</code></pre><p>完成后的效果如下图所示<br><img src="/img/2017/iOS/git_config.png" alt="config配置"><br>然后保存,退出即可</p>
+</li>
+</ul>
+<h3 id="愉快的进行提交操作"><a href="#愉快的进行提交操作" class="headerlink" title="愉快的进行提交操作"></a>愉快的进行提交操作</h3><p>确保上面所有的设置都无误之后,就可以修改代码上传了</p>
+<pre><code>git add -修改的文件
+git commit -m&quot;comments&quot;
+git push
+</code></pre><p>如果遇到warning</p>
+<blockquote>
+<p>warning: push.default is unset; its implicit value is changing in Git 2.0 from ‘matching’ to ‘simple’. To squelch this messageand maintain the current behavior after the default changes, use…</p>
+</blockquote>
+<p>推荐使用下面命令进行设置<br><code>$ git config --global push.default simple</code></p>
+]]></content>
+      <categories>
+        <category>开发必备</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多线程基础</title>
     <url>/iOS/OC%E8%BF%9B%E9%98%B6/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80.html</url>
     <content><![CDATA[<h2 id="多线程简介"><a href="#多线程简介" class="headerlink" title="多线程简介"></a>多线程简介</h2><h3 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程"></a>什么是进程</h3><ol>
@@ -534,197 +725,6 @@ __block在ARC下只有一个作用
       </tags>
   </entry>
   <entry>
-    <title>深入理解iOS中的frame和bounds</title>
-    <url>/iOS/OC%E8%BF%9B%E9%98%B6/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3iOS%E4%B8%AD%E7%9A%84frame%E5%92%8Cbounds.html</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在iOS开发界面的过程中，frame和bounds是两个非常常用的属性，这是两个非常容易混淆的概念，我们虽然经常用，但如果不清楚其原理，遇到了一些莫名其妙的问题可能会使我们不知所措，本来就将通过两个特殊场景来详细介绍一下二者的本质及区别。</p>
-<h2 id="场景一（关于frame）"><a href="#场景一（关于frame）" class="headerlink" title="场景一（关于frame）"></a>场景一（关于frame）</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> screen_width = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width;</span><br><span class="line">    <span class="built_in">CGFloat</span> screen_height = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *bgView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    bgView.frame = <span class="built_in">CGRectMake</span>((screen_width - <span class="number">200</span>) * <span class="number">0.5</span>, (screen_height - <span class="number">200</span>) * <span class="number">0.5</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    bgView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:bgView];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *subView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    subView.backgroundColor = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">    subView.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    [bgView addSubview:subView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>代码是不是很简单，仔细看一下，然后想象一下运行出来的效果，和下面的图形对照一下，看看和你想象的是不是一样。<br><img src="http://p2utrpfbk.bkt.clouddn.com/frame_bounds_cj1_result.jpeg" alt></p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>那么为什么黄色视图不是从红色视图的左上角位置出现呢？</p>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>因为frame是<code>center</code>+<code>size</code>的组合模式，如果不设置center或者origin的话，那么默认center是CGPointZero，所以会出现上述状况。由此可知，改变origin的本质其实也是改变center。</p>
-<h2 id="场景二（关于bounds）"><a href="#场景二（关于bounds）" class="headerlink" title="场景二（关于bounds）"></a>场景二（关于bounds）</h2><h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> screen_width = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width;</span><br><span class="line">    <span class="built_in">CGFloat</span> screen_height = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *bgView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    bgView.frame = <span class="built_in">CGRectMake</span>((screen_width - <span class="number">200</span>) * <span class="number">0.5</span>, (screen_height - <span class="number">200</span>) * <span class="number">0.5</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    bgView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:bgView];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *middleView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    middleView.backgroundColor = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">    middleView.frame = <span class="built_in">CGRectMake</span>((bgView.frame.size.width - <span class="number">100</span>) * <span class="number">0.5</span>, (bgView.frame.size.height - <span class="number">100</span>) * <span class="number">0.5</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="comment">//注意这一行代码</span></span><br><span class="line">    middleView.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    [bgView addSubview:middleView];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *smallView = [<span class="built_in">UIView</span> new];</span><br><span class="line">    smallView.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">    smallView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    [middleView addSubview:smallView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>同样的，这个场景非常的简单，看完代码，你马上就可以在脑子里把UI效果构建出来。</p>
-<h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>问题是如果把其中的第<code>16</code>行代码修改为<code>middleView.bounds = CGRectMake(-50, -50, 100, 100);</code>会产生什么要的效果呢？</p>
-<h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><p>实际效果如下图所示，看看和你想的是不是一样？然后想想一下为什么会出现这种现象？<br><img src="http://p2utrpfbk.bkt.clouddn.com/frame_bounds_cj2_result.jpeg" alt><br>可以发现，红色和黄色视图的位置不受影响，符合预期，绿色视图的frame的origin虽然设置为<code>{0,0}</code>，但是并没有出现在的黄色视图的左上角位置，而是向右大概偏移了50个像素，很显然，上面改动的第<code>16</code>行代码对绿色视图出现的位置造成了影响。</p>
-<h3 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h3><p>事实上，bounds的<code>x</code>和<code>y</code>这两个参数描述的是自身左上角的那个点在本地坐标系中的坐标，默认情况下是<code>{0,0}</code>，如果设置为非零值，则会把该点的坐标强制转化为该非零值，上面16行中把该点坐标设置为<code>{-50,-50}</code>，所以该点坐标在本地坐标系中变为{-50,-50}，如果绿色视图想要在黄色视图的左上角位置出现，则需要把自身的origin设置为<code>{-50,-50}</code>，但是实际上我们给绿色视图的origin设置的是<code>{0,0}</code>，所以出现了上面向右偏移50个像素的现象。又因为改变的是黄色视图的本地坐标系，所以其父视图和自身不受影响。<br>综上，<code>bounds的x和y的值会影响其子视图出现的位置</code>。</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Objective-C</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>iOS 开发技巧 - 实时访问真机沙盒文件</title>
-    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/iOS-%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7-%E5%AE%9E%E6%97%B6%E8%AE%BF%E9%97%AE%E7%9C%9F%E6%9C%BA%E6%B2%99%E7%9B%92%E6%96%87%E4%BB%B6.html</url>
-    <content><![CDATA[<h3 id="1-想要解决的问题"><a href="#1-想要解决的问题" class="headerlink" title="1.想要解决的问题"></a>1.想要解决的问题</h3><blockquote>
-<p>iOS开发过程中经常需要访问沙盒文件来调试持久化文件,数据库文件,缓存文件等.模拟器一般可以通过<br><a href="https://simpholders.com/" target="_blank" rel="noopener">SimPholders</a>或者<a href="https://github.com/dsmelov/simsim" target="_blank" rel="noopener">simsim</a>等来方便的访问沙盒.但是真机并没有一个方便快捷的访问修改方法,因此,很多时候,我们需要测试沙盒的时候不得不去使用模拟器来替代真机.那么有没有什么方法去直接<code>访问真机的沙盒</code>呢?</p>
-</blockquote>
-<h3 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2.解决方案"></a>2.解决方案</h3><p>说到访问真机沙盒,首先要给大家介绍一款框架<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">GCDWebServer</a>,利用这款框架,你可以很方便的用<code>浏览器</code>实时的访问你真机的沙盒.</p>
-<h3 id="3-集成方法"><a href="#3-集成方法" class="headerlink" title="3.集成方法"></a>3.集成方法</h3><p>方案一. 可以用过cocoapods集成<br>方案二. 可以用过手动集成</p>
-<h3 id="4-集成步骤"><a href="#4-集成步骤" class="headerlink" title="4.集成步骤"></a>4.集成步骤</h3><p>由于笔者是通过手动集成的,这里着重介绍下<code>手动集成</code>方案,通过cocoapods集成方法大同小异,具体可以看官方文档</p>
-<ol>
-<li>首先在github上下载<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">源码</a></li>
-<li>然后把GCDWebServer和GCDWebUploader这两个文件夹拖到项目中<br><img src="/img/2017/iOS/skill_shahe_step2.jpg" alt="步骤2"></li>
-<li>在Target &gt; Build Phases &gt; Link Binary With Libraries里面加入<code>libz.tbd</code>库</li>
-<li>在Target &gt; Build Settings &gt; header_search_paths里面添加<code>$(SDKROOT)/usr/include/libxml2</code></li>
-<li><p>在AppDelegate.m里面引入头文件</p>
-<pre><code>#import &quot;HCViewController.h&quot;
-#import &quot;GCDWebUploader.h&quot;
-</code></pre></li>
-<li><p>在AppDelegate.m的- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions方法中添加如下代码</p>
-<pre><code>//1.想要访问的沙盒路径
-NSString *myDocPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-//2.初始化服务器
-_server = [[GCDWebUploader alloc] initWithUploadDirectory:myDocPath];
-//3.启动服务器(port代表端口号)
-[_server startWithPort:9090 bonjourName:@&quot;&quot;];
-
-//other code……
-</code></pre></li>
-<li>运行项目,如果你在控制台看到如下信息,那么恭喜你,你已经成功了<br><img src="/img/2017/iOS/skill_shahe_result.jpg" alt="运行结果"></li>
-<li>接下来只需要在浏览器中输入控制台打印出来的路径(输入IP那个)就可以在浏览器中访问你APP的沙盒了<br><img src="/img/2017/iOS/skill_shahe.png" alt="效果演示"></li>
-</ol>
-<h3 id="接下来尽情的享受你的沙盒之旅吧"><a href="#接下来尽情的享受你的沙盒之旅吧" class="headerlink" title="接下来尽情的享受你的沙盒之旅吧!"></a>接下来尽情的享受你的沙盒之旅吧!</h3>]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>沙盒</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OC语言系列——基础篇</title>
-    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%AF%87.html</url>
-    <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt>    </p>
-<h2 id="面向对象性"><a href="#面向对象性" class="headerlink" title="面向对象性"></a>面向对象性</h2><p>OC语言是面对对象的</p>
-<h2 id="关于类"><a href="#关于类" class="headerlink" title="关于类"></a>关于类</h2><p>OC中类的设计包括三个方面：类名、类的属性和方法</p>
-<h2 id="关于对象"><a href="#关于对象" class="headerlink" title="关于对象"></a>关于对象</h2><p>每个对象内部都默认有一个隐藏的isa指针指向这个对象所使用的类<br><code>创建过程</code>：调用alloc方法在内存中为对象开辟一块内存空间，调用init方法进行初始化，每个对象都有一份属于自己的单独的成员变量，所有的对象公用类的成员方法，方法在整个内存中只有一份，类本身在内存中占据一份存储空间，类的方法存储于此。</p>
-<h2 id="消息机制"><a href="#消息机制" class="headerlink" title="消息机制"></a>消息机制</h2><p>在OC中，对象对方法的调用称为消息机制，即向既定的对象发送了什么消息。<br><code>[p eat];</code>表示给p所指向的对象发送一条eat消息，调用对象的eat方法，此时对象会顺着内部的isa指针找到存储于类中的方法(先去缓存中去取，缓存中没有再去类的内存中找)，执行。<br><code>点语法的本质</code>：调用属性的setter和getter方法</p>
-<h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p><strong>@public</strong>：全局可以访问<br><strong>@protected</strong>：只能在类内部和子类中访问<br><strong>@private</strong>：只能在类内部访问</p>
-<blockquote>
-<p>注意：<code>.h</code>中的成员变量的默认作用域是<code>@protected</code><br><code>.m</code>中的成员变量不管作用域写为什么，子类都不能访问，即被强制为<code>@private</code></p>
-</blockquote>
-<h2 id="property关键字"><a href="#property关键字" class="headerlink" title="@property关键字"></a>@property关键字</h2><ul>
-<li><p>在xcode4.5之前，可以让编译器自动生成属性的setter和getter方法的<code>声明</code></p>
-<pre><code>@proterty int age;// 等价于下面2行
-- (void)setAge:(int)newAge;// setter
-- (int)age;    // getter
-</code></pre></li>
-<li><p>在xcode4.5(包括)之后，可以让编译器自动生成属性的setter和getter方法的<code>声明</code>和<code>实现</code>(会访问带下划线的同名的成员变量，如果没有则自动创建一个带下划线的同名的私有成员变量，并为该变量生成getter和setter方法)</p>
-<pre><code>@proterty int age;// 等价于下面8行
-- (void)setAge:(int)newAge;// setter声明
-- (int)age;    // getter声明
-- (void)setAge:(int)newAge{// setter实现
-    _age = newAge;
-}
-- (int)age{// getter实现
-    return _age;
-}        
-</code></pre></li>
-</ul>
-<h2 id="synthesize关键字"><a href="#synthesize关键字" class="headerlink" title="@synthesize关键字"></a>@synthesize关键字</h2><p><strong>示例用法</strong>：<code>@synthesize name = _goodName;</code><br><strong>默认情况</strong>：<code>@synthesize name;</code>等价于<code>@synthesize name = _name;</code><br>让编译器自动生成同名属性<code>name</code>的setter和getter方法的<code>声明</code>和<code>实现</code>，并访问成员变量<code>_goodName</code>，如果没有则创建一个私有成员变量<code>_goodName</code>，默认情况访问成员变量<code>_name</code>;</p>
-<pre><code>@synthesize age;// 等价于下面6行
-- (void)setAge:(int)newAge{// setter实现
-    _age = newAge;
-}
-- (int)age{// getter实现
-    return _age;
-}
-
-@synthesize age = _goodName;// 等价于下面6行
-- (void)setAge:(int)newAge{// setter实现
-    _goodName = newAge;
-}
-- (int)age{// getter实现
-    return _goodName;
-}
-</code></pre><blockquote>
-<p><strong>注意</strong>：<br>1、如果实现自定义的setter方法，@property就不会帮我们生成它的setter方法，但仍然会帮我们生成getter方法和私有的成员变量<br>2、如果实现自定义的getter方法，@property就不会帮我们生成它的getter方法，但仍然会帮我们生成setter方法和私有的成员变量<br>3、如果你实现了setter和getter方法，@property就不会帮我们生成它的setter和getter方法，同时也不会生成私有成员变量了，需要自己手动添加该成员变量或者手动实现@synthesize name = _name方法。</p>
-</blockquote>
-<h2 id="关于self"><a href="#关于self" class="headerlink" title="关于self"></a>关于self</h2><p><strong>在对象方法中使用</strong>：指的是该对象<br><strong>在类方法中使用</strong>：指的是该类本身</p>
-<h2 id="成员变量和属性的区别"><a href="#成员变量和属性的区别" class="headerlink" title="成员变量和属性的区别"></a>成员变量和属性的区别</h2><p>操作成员变量需要用<code>-&gt;</code>，@property生成属性仅仅是帮我们自动生成了私有成员变量和set和get方法，而set和get方法本质还是操作成员变量，而属性则可以让我们方便的用点语法访问该属性（本质也就是操作成员变量），@synthesize则可以通过@synthesize name = alias_name的方式改变set和get方法操作的具体成员变量。</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Objective-C</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/%E6%B5%8B%E8%AF%95.html</url>
-    <content><![CDATA[<p>晚安！！！</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一台电脑如何绑定多个github账号</title>
-    <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E5%85%B6%E5%AE%83/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7.html</url>
-    <content><![CDATA[<h3 id="什么-你还没有一个GitHub账号-😱"><a href="#什么-你还没有一个GitHub账号-😱" class="headerlink" title="什么,你还没有一个GitHub账号?😱"></a>什么,你还没有一个GitHub账号?😱</h3><p>作为一名程序员,我想你大概99.9%的可能听说过<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.如果把优秀的代码比作美女,那[GitHub]上说是美女云集真是一点也不过分啊!如果你到现在还没有一个github账号.那么兄弟我真的劝你赶紧去<a href="https://github.com/" target="_blank" rel="noopener">注册</a>一个去.</p>
-<h3 id="我不但有-而且不止一个-就是任性😏"><a href="#我不但有-而且不止一个-就是任性😏" class="headerlink" title="我不但有,而且不止一个,就是任性😏"></a>我不但有,而且不止一个,就是任性😏</h3><p>而对于那些经常和github打交道的小伙伴,就好像有的人会有2个QQ号,一个工作时候用,一个私下用一样,部分朋友可能会同时经营着2个GitHub账号.可是申请完第二个账号,还没来得及嘚瑟,这些小伙伴就在使用的时候可能就遇到了当头一棒,那就是两个账号没法在一个电脑上同时操作(指的是用ssh操作,通过https操作的除外),遇到过这个问题的小伙伴都懂的,不再过多解释.</p>
-<h3 id="告诉你一个好消息和一个好消息-你先听哪个-😆"><a href="#告诉你一个好消息和一个好消息-你先听哪个-😆" class="headerlink" title="告诉你一个好消息和一个好消息,你先听哪个?😆"></a>告诉你一个好消息和一个好消息,你先听哪个?😆</h3><p>其实上述问题是有解决方案的,也很简单.接下来就一步步教你如何解决这个问题,愉快的让多个github账号在你的电脑上和谐共存,无不干扰.</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
-<li>首先由2个github账号,假设一个账号为one,另一个账号为two</li>
-<li>取消git全局设置<br><code>$ git config --global --unset user.name</code><br><code>$ git config --global --unset user.email</code></li>
-</ul>
-<h3 id="SSH配置"><a href="#SSH配置" class="headerlink" title="SSH配置"></a>SSH配置</h3><ul>
-<li>生成两对RSA密钥对<br><code>$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code><br>如果直接回车,会默认放在~/.ssh目录下,并且命名为id_rsa(私钥)和id_rsa.pub(公钥)<br>当然你也可以输入不一样的文件名,比如github_one和github_two<br>配置完成后,输入一些命令查看你电脑上所有的</li>
-</ul>
-<h3 id="登录github添加公钥"><a href="#登录github添加公钥" class="headerlink" title="登录github添加公钥"></a>登录github添加公钥</h3><p>分别登录one,two的账号,在<code>Settings</code>-&gt;<code>SSH and GPG keys</code>点击<code>New SSH key</code>,把生成的公钥(.pub文件)内容粘贴到“Key”中,并输入“Title”.<br>可以在添加前使用下面命令删除所有的key<br><code>$ ssh-add -D</code></p>
-<h3 id="修改ssh-config文件"><a href="#修改ssh-config文件" class="headerlink" title="修改ssh config文件"></a>修改ssh config文件</h3><p><code>$ cd ~/.ssh/</code><br><code>$ touch config</code><br><code>$ open config</code><br>然后在打开的config文件里面,输入以下内容</p>
-<pre><code># one
-Host one.github.com
-HostName github.com
-User git
-IdentityFile ~/.ssh/github_one
-
-# two
-Host two.github.com
-HostName github.com
-User git
-IdentityFile ~/.ssh/github_two
-</code></pre><p>其中的Host默认的是github.com,但是可以任意写.如果不这样设置,push时会出现以下错误:<br><code>ERROR: Permission to two/two.github.com.git denied to one.</code><br>分析一下git提交时候的ssh链接,我们可以发现该链接实际上是由这样几个部分组成的:<br>git@Host:用户名/项目名.git,很明显,git是通过其中的Host来识别使用哪个本地私钥的。如果Host始终为github.com，那么就只能使用一个私钥,那么也就无法在使用ssh连接时区别不同的账号了.</p>
-<h3 id="添加ssh-key"><a href="#添加ssh-key" class="headerlink" title="添加ssh key"></a>添加ssh key</h3><p>通过下面的命令,可以查看当前所有的key<br><code>$ ssh-add -l</code><br>如果发现刚才添加的key没有在列表中,可以使用以下指令进行添加<br><code>$ ssh-add -K ~/.ssh/github_one</code><br><code>$ ssh-add -K ~/.ssh/github_two</code><br>使用<code>-K</code>可以将私钥添加到钥匙串，不用每次开机后还要再次输入这条命令了</p>
-<h3 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h3><p><code>$ ssh -T git@one.github.com        # 测试one ssh连接</code><br><code>$ ssh -T git@two.github.com        # 测试two ssh连接</code><br>如果分别出现以下结果,证明连接成功<br><code>#Hi one! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code><br><code>#Hi two! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
-<h3 id="新建git项目或者clone已有项目"><a href="#新建git项目或者clone已有项目" class="headerlink" title="新建git项目或者clone已有项目"></a>新建git项目或者clone已有项目</h3><ul>
-<li>可以用 git init 或者 git clone 创建本地项目</li>
-<li><p>分别在one和two的git项目目录下，使用下面的命令设置账号关联</p>
-<pre><code>git config user.name &quot;__name__&quot;            # __name__ 例如 one
-git config user.email &quot;__email__&quot;          # __email__ 例如 one@163.com
-</code></pre><p>查看git项目的配置(在当前项目目录下)<br><code>$ git config --list</code><br>修改提交路径,比如在one的项目demo下</p>
-<pre><code>git remote rm origin
-git remote add origin git@one.github.com:one/demo.git
-</code></pre><p>当然以上设置也可以不用命令行,直接在项目目录下<br><code>$ ls -a</code><br>你会发现在项目目录下有一个隐藏的.git文件夹,cd到这个文件夹,会发现里面有一个config文件<br>,打开该config文件,可以直接在里面修改远程路径,添加用户名和邮箱等</p>
-<pre><code>$ cd .git
-$ open config
-</code></pre><p>完成后的效果如下图所示<br><img src="/img/2017/iOS/git_config.png" alt="config配置"><br>然后保存,退出即可</p>
-</li>
-</ul>
-<h3 id="愉快的进行提交操作"><a href="#愉快的进行提交操作" class="headerlink" title="愉快的进行提交操作"></a>愉快的进行提交操作</h3><p>确保上面所有的设置都无误之后,就可以修改代码上传了</p>
-<pre><code>git add -修改的文件
-git commit -m&quot;comments&quot;
-git push
-</code></pre><p>如果遇到warning</p>
-<blockquote>
-<p>warning: push.default is unset; its implicit value is changing in Git 2.0 from ‘matching’ to ‘simple’. To squelch this messageand maintain the current behavior after the default changes, use…</p>
-</blockquote>
-<p>推荐使用下面命令进行设置<br><code>$ git config --global push.default simple</code></p>
-]]></content>
-      <categories>
-        <category>开发必备</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第三方库踩坑系列</title>
     <url>/iOS/%E5%85%B6%E5%AE%83/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97.html</url>
     <content><![CDATA[<p><strong>坑是无限的，而生命是有限的，坑虽多，但在我们的努力下终归会越踩越少。所以我们的格言就是：生命不息，踩坑不止。</strong><br><img src="/img/2018/iOS/caikeng.jpg" alt></p>
@@ -763,30 +763,6 @@ git push
       </categories>
       <tags>
         <tag>JSP基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在Mac上方便的启用Http Server</title>
-    <url>/Server/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%96%B9%E4%BE%BF%E7%9A%84%E5%90%AF%E7%94%A8Http-Server.html</url>
-    <content><![CDATA[<p>我们在本地调试Html或者php等后台程序的时候,经常需要启动一个本地Web服务器,对于不太会配置Apache等服务器的童鞋,我专门写过一篇文章教你<a href="http://localhost:4000/server-side/%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html" target="_blank" rel="noopener">如何把你的电脑配置成本地服务器</a>.</p>
-<p>所谓条条道路通罗马,解决问题的方案永远不止一个,本文就将带你用另一种简洁的方式去解决这个问题.<br><code>在Python或PHP命令行下启用Http Server。</code></p>
-<p>由于在Mac系统下，Python和Php都是默认安装好的，所以不需要额外的软件支持。具体方法如下：</p>
-<h4 id="方法一：不支持PHP"><a href="#方法一：不支持PHP" class="headerlink" title="方法一：不支持PHP"></a>方法一：不支持PHP</h4><p>这一方法的前提是，系统已经默认安装了Python，所以可以利用Python启用Http服务器。 步骤：</p>
-<pre><code>$cd /projectpath
-$python -m SimpleHTTPServer 9999
-</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可,此方法仅适用于提供html等文件服务，不支持运行PHP脚本.</p>
-<h4 id="方法二-支持PHP"><a href="#方法二-支持PHP" class="headerlink" title="方法二:支持PHP"></a>方法二:支持PHP</h4><pre><code>$cd /projectpath
-$php -S localhost:9999
-</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可访问.该方法支持运行PHP脚本.</p>
-<h4 id="停止server"><a href="#停止server" class="headerlink" title="停止server"></a>停止server</h4><p><code>在终端按control+C</code></p>
-<h4 id="其他系统"><a href="#其他系统" class="headerlink" title="其他系统"></a>其他系统</h4><p>由于Python和PHP都是跨平台的，在其他系统上，只需要安装好这两个运行环境，就可以使用同样的方法.</p>
-<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><p>以上生成的链接有的端口经过笔者的测试可能无法访问,如果你启动服务器后在浏览器中输入对应的链接发现不可用,可以尝试换一个端口.</p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
       </tags>
   </entry>
   <entry>
@@ -836,6 +812,30 @@ return 0;
       </tags>
   </entry>
   <entry>
+    <title>如何在Mac上方便的启用Http Server</title>
+    <url>/Server/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%96%B9%E4%BE%BF%E7%9A%84%E5%90%AF%E7%94%A8Http-Server.html</url>
+    <content><![CDATA[<p>我们在本地调试Html或者php等后台程序的时候,经常需要启动一个本地Web服务器,对于不太会配置Apache等服务器的童鞋,我专门写过一篇文章教你<a href="http://localhost:4000/server-side/%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html" target="_blank" rel="noopener">如何把你的电脑配置成本地服务器</a>.</p>
+<p>所谓条条道路通罗马,解决问题的方案永远不止一个,本文就将带你用另一种简洁的方式去解决这个问题.<br><code>在Python或PHP命令行下启用Http Server。</code></p>
+<p>由于在Mac系统下，Python和Php都是默认安装好的，所以不需要额外的软件支持。具体方法如下：</p>
+<h4 id="方法一：不支持PHP"><a href="#方法一：不支持PHP" class="headerlink" title="方法一：不支持PHP"></a>方法一：不支持PHP</h4><p>这一方法的前提是，系统已经默认安装了Python，所以可以利用Python启用Http服务器。 步骤：</p>
+<pre><code>$cd /projectpath
+$python -m SimpleHTTPServer 9999
+</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可,此方法仅适用于提供html等文件服务，不支持运行PHP脚本.</p>
+<h4 id="方法二-支持PHP"><a href="#方法二-支持PHP" class="headerlink" title="方法二:支持PHP"></a>方法二:支持PHP</h4><pre><code>$cd /projectpath
+$php -S localhost:9999
+</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可访问.该方法支持运行PHP脚本.</p>
+<h4 id="停止server"><a href="#停止server" class="headerlink" title="停止server"></a>停止server</h4><p><code>在终端按control+C</code></p>
+<h4 id="其他系统"><a href="#其他系统" class="headerlink" title="其他系统"></a>其他系统</h4><p>由于Python和PHP都是跨平台的，在其他系统上，只需要安装好这两个运行环境，就可以使用同样的方法.</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><p>以上生成的链接有的端口经过笔者的测试可能无法访问,如果你启动服务器后在浏览器中输入对应的链接发现不可用,可以尝试换一个端口.</p>
+]]></content>
+      <categories>
+        <category>Server</category>
+      </categories>
+      <tags>
+        <tag>Server</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CocoaPods的安装和使用</title>
     <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E7%BB%84%E4%BB%B6%E5%8C%96/CocoaPods%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<p><img src="/img/2018/Tools/cocoapods.jpg" alt></p>
@@ -875,50 +875,6 @@ target &apos;MyApp&apos; do
 end
 </code></pre><h3 id="执行pod-install命令自动集成第三方库"><a href="#执行pod-install命令自动集成第三方库" class="headerlink" title="执行pod install命令自动集成第三方库"></a>执行<code>pod install</code>命令自动集成第三方库</h3><p>如果出现下图字样，证明集成成功，这时候会在你的项目根目录下生成一个<strong>.xcworkspace</strong>文件。只需要关闭当前的<strong>.xcodeproj</strong>，打开新生成的<strong>.xcworkspace</strong>即可使用集成好的第三方库。<br><img src="/img/2018/Tools/cocoapods_success.png" alt></p>
 <h3 id="更新第三方库"><a href="#更新第三方库" class="headerlink" title="更新第三方库"></a>更新第三方库</h3><p>只需要执行<strong><code>pod update</code></strong>命令即可</p>
-]]></content>
-      <categories>
-        <category>开发必备</category>
-      </categories>
-      <tags>
-        <tag>CocoaPods</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何把自己写的框架上传至CocoaPods</title>
-    <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E7%BB%84%E4%BB%B6%E5%8C%96/%E5%A6%82%E4%BD%95%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E6%A1%86%E6%9E%B6%E4%B8%8A%E4%BC%A0%E8%87%B3CocoaPods.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名iOS应用开发者，我们在实际工作中经常会用到各种各样的第三方库,比如我们常用的AFNetworking,SDWebimage等.这些类库一般都可以通过一款叫做Cocoapods的工具进行管理，非常的便利。当享受着Cocoapods带给我们的这种便利的同时，你是否想过让自己封装的常用的工具类也添加Cocoapods支持?本文将会一步步揭开CocoaPods的神秘面纱,教你把自己封装的一些工具类上传至CocoaPods,以后你就可以通过CocoaPods来使用自己封装的工具类了,听起来是不是很酷,那么就让我们开始我们的CocoaPods之旅吧.</p>
-<h3 id="Cocoapods介绍"><a href="#Cocoapods介绍" class="headerlink" title="Cocoapods介绍"></a>Cocoapods介绍</h3><p>你来看这篇文章,我相信你肯定已经使用过CocoaPods了吧.就算没用过,起码也至少应该有所了解.<br>但是如果你并不了解CocoaPods是什么东西,以及如何使用,那么这里给你准备了一篇文章<a href="http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/" target="_blank" rel="noopener">用CocoaPods做iOS程序的依赖管理</a>,或者你也可以去自己百度,网上的教程一大堆,这里就不再对此进行相信的介绍了.</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>本文将会以我自己写的一个UI调试小工具<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>为例,来说明把自己写的类库上传至CocoaPods的整个过程.</p>
-<ul>
-<li>注册trunk</li>
-<li>在github上上传相关的代码库</li>
-<li>创建podspec配置文件</li>
-<li>验证是否可用</li>
-<li>推送到CocoaPods</li>
-<li>检查是否可用</li>
-</ul>
-<h3 id="注册trunk"><a href="#注册trunk" class="headerlink" title="注册trunk"></a>注册trunk</h3><p>想让Cocoapods支持你自己的工具代码库，首先需要一个CocoaPods账号。<br>注册命令:<br><code>$ pod trunk register 邮箱地址 ‘用户名’ —description=&#39;描述信息&#39;</code><br>执行以上注册命令后，到你注册邮箱检查一下，一切顺利的话就会受到一份邮件，点击验证链接打开网页。如果出现下面的提示，说明注册成功(如果打开网页太慢的话，建议开vpn)。<br><img src="/img/2017/iOS/register_cocoapods.jpg" alt="注册成功的图示"><br>查看注册信息的命令:<br><code>$ pod trunk me</code><br><img src="/img/2017/iOS/cocoapods_trunk_me.jpg" alt="查看注册信息"></p>
-<h3 id="在github上上传相关的代码库"><a href="#在github上上传相关的代码库" class="headerlink" title="在github上上传相关的代码库"></a>在github上上传相关的代码库</h3><p>到<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>登录你的账户,执行Create a new repository操作,因为笔者已经创建过UIHelper这个项目,所有会有红色警告,如果你是第一次创建某个项目,不会有该警告.<br><img src="/img/2017/iOS/cocoapods_github.png" alt="在github上上传代码图示"><br>创建项目的时候请注意图中选择的MIT License选项,这个会在添加Cocoapods支持的时候用到.创建完成后,clone到本地,把你写的工具代码放到该文件夹,此时的目录结构如下图所示.<br><img src="/img/2017/iOS/cocoapods_mljg.png" alt="目录结构"></p>
-<h3 id="创建podspec配置文件"><a href="#创建podspec配置文件" class="headerlink" title="创建podspec配置文件"></a>创建podspec配置文件</h3><p>打开终端，cd到刚刚的文件夹目录下，执行创建podspec命令：<br><code>$ pod spec create UIHelper</code><br>此时你会看到文件夹下多了一个UIHelper.podspec文件,如下图所示<br><img src="/img/2017/iOS/cocoapods_mljg2.jpg" alt="目录结构"><br>用vim或者Sublime Text或者其它文本编辑器打开该文件,会发现里面有很多内容,看起来可能毫无头绪,其实里面的很多内容是并没有用的,以下是我整理过后的内容(把不用的东西都删掉,只留下有用的),接下来就以此文件中的内容进行一下重点说明.<br><img src="/img/2017/iOS/cocoapods_podspec.png" alt="podspec文件"><br>当然，我们开发的库中也可能还依赖第三方库，例如SDWebimage，那么，就可以添加如下声明:<br><code>$ s.dependency &quot;SDWebimage&quot;, &quot;~&gt; 1.4&quot;</code><br>如果有多个需要填写多个s.dependency.</p>
-<h3 id="验证是否可用"><a href="#验证是否可用" class="headerlink" title="验证是否可用"></a>验证是否可用</h3><ul>
-<li>验证</li>
-</ul>
-<p>编辑完podspec文件后，需要验证一下这个文件是否可用，如果有WARNING或者ERROR是不可以的，就不能被添加到Spec Repo中，不过xcode的WARNING是可以存在的，进行验证的命令如下：<br><code>$ pod lib lint UIHelper.podspec</code><br>如果有没有Error输出，只有Warning输出，那么可以将这些警告直接忽略<br><code>$ pod lib lint UIHelper.podspec —allow-warnings</code><br>如果出现以下信息说明验证通过<br><img src="/img/2017/iOS/cocoapods_podspec_success.png" alt="验证通过"></p>
-<ul>
-<li>解决错误</li>
-</ul>
-<p>在验证podspec的时候，如果直接用pod spec lint xxx.podspec的话，出现错误它只会直接给出一句红色的提示The spec did not pass validation, due to 1 error.告诉你有多少个error和warning，而不会具体的指出你的错误出在哪里，这时候你可以在这句指令后面加上参数–verbose<br><code>$ pod lib lint UIHelper.podspec --verbose</code><br>这样就会告诉你具体的错误信息。然后就可以根据它提示的具体错误信息去解决问题了。**<br>在执行校验命令时如果出现类似<code>fatal error: &#39;UIKit/UIKit.h&#39; file not found</code>这样的错误，这里笔者提供2种解决方案,供大家参考。</p>
-<ol>
-<li>在podspec配置文件里，修改 s.framework选项如下<br><code>s.frameworks   = &quot;Foundation&quot;</code></li>
-<li>在你的项目里，创建一个pch文件，将所有需要开源的代码库的.h头文件导入到pch文件里。<br>然后执行<code>$ pod lib lint UIHelper.podspec —allow-warnings</code>命令。</li>
-</ol>
-<ul>
-<li>制作相应tag的版本</li>
-</ul>
-<p>所有错误都解决后，接下来我们需要将修改后的最新项目重新push到GitHub上(库文件 和 .spec文件)并制作一个和podspec文件里面对应的tag一致的release包,可以在github里面项目页点击release按照提示直接操作,如下图<br><img src="/img/2017/iOS/cocoapods_tag.jpg" alt="制作tag"><br>也可以使用以下命令直接操作<br><code>$ git tag &#39;1.0.3&#39;</code><br><code>$ git push --tags</code></p>
-<h3 id="推送到CocoaPods"><a href="#推送到CocoaPods" class="headerlink" title="推送到CocoaPods"></a>推送到CocoaPods</h3><p>所有的准备工作都已经完成了，下面就可以将我们的项目push到Cocoapods.<br>执行命令：<code>$ pod trunk push UIHelper.podspec</code><br>如果出现如下图所示的结果,证明推送成功<br><img src="/img/2017/iOS/cocoppods_success.png" alt="推送成功"></p>
-<h3 id="检查是否可用"><a href="#检查是否可用" class="headerlink" title="检查是否可用"></a>检查是否可用</h3><p>上传成功后,可以试一下能否通过pod search命令搜索到自己刚刚上传成功的类库<br><code>$ pod search UIHelper</code><br>如果搜索不到，建议删除本地的CocoaPods的搜索目录，执行以下命令：<br><code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code><br>然后重新执行<code>$ pod search UIHelper</code>命令就可以了.<br>ps:如果你发布成功后，在你自己的电脑上可以search到，在别的电脑上搜不到，建议首先执行<code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code>命令，先删除旧的搜索目录.也可以尝试更新你的pod.<br>最后完成的成果如下图所示<br><img src="/img/2017/iOS/cocoapods_result.png" alt="完成结果"></p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>附上以上完成的小项目的github链接:<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>,你可以直接把UIHelper.podspec里面的内容复制粘贴到你项目中的.podspec文件里面,简单修改一下即可.</p>
 ]]></content>
       <categories>
         <category>开发必备</category>
@@ -972,6 +928,50 @@ end
       <tags>
         <tag>CocoaPods</tag>
         <tag>组件化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何把自己写的框架上传至CocoaPods</title>
+    <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E7%BB%84%E4%BB%B6%E5%8C%96/%E5%A6%82%E4%BD%95%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E6%A1%86%E6%9E%B6%E4%B8%8A%E4%BC%A0%E8%87%B3CocoaPods.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名iOS应用开发者，我们在实际工作中经常会用到各种各样的第三方库,比如我们常用的AFNetworking,SDWebimage等.这些类库一般都可以通过一款叫做Cocoapods的工具进行管理，非常的便利。当享受着Cocoapods带给我们的这种便利的同时，你是否想过让自己封装的常用的工具类也添加Cocoapods支持?本文将会一步步揭开CocoaPods的神秘面纱,教你把自己封装的一些工具类上传至CocoaPods,以后你就可以通过CocoaPods来使用自己封装的工具类了,听起来是不是很酷,那么就让我们开始我们的CocoaPods之旅吧.</p>
+<h3 id="Cocoapods介绍"><a href="#Cocoapods介绍" class="headerlink" title="Cocoapods介绍"></a>Cocoapods介绍</h3><p>你来看这篇文章,我相信你肯定已经使用过CocoaPods了吧.就算没用过,起码也至少应该有所了解.<br>但是如果你并不了解CocoaPods是什么东西,以及如何使用,那么这里给你准备了一篇文章<a href="http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/" target="_blank" rel="noopener">用CocoaPods做iOS程序的依赖管理</a>,或者你也可以去自己百度,网上的教程一大堆,这里就不再对此进行相信的介绍了.</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>本文将会以我自己写的一个UI调试小工具<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>为例,来说明把自己写的类库上传至CocoaPods的整个过程.</p>
+<ul>
+<li>注册trunk</li>
+<li>在github上上传相关的代码库</li>
+<li>创建podspec配置文件</li>
+<li>验证是否可用</li>
+<li>推送到CocoaPods</li>
+<li>检查是否可用</li>
+</ul>
+<h3 id="注册trunk"><a href="#注册trunk" class="headerlink" title="注册trunk"></a>注册trunk</h3><p>想让Cocoapods支持你自己的工具代码库，首先需要一个CocoaPods账号。<br>注册命令:<br><code>$ pod trunk register 邮箱地址 ‘用户名’ —description=&#39;描述信息&#39;</code><br>执行以上注册命令后，到你注册邮箱检查一下，一切顺利的话就会受到一份邮件，点击验证链接打开网页。如果出现下面的提示，说明注册成功(如果打开网页太慢的话，建议开vpn)。<br><img src="/img/2017/iOS/register_cocoapods.jpg" alt="注册成功的图示"><br>查看注册信息的命令:<br><code>$ pod trunk me</code><br><img src="/img/2017/iOS/cocoapods_trunk_me.jpg" alt="查看注册信息"></p>
+<h3 id="在github上上传相关的代码库"><a href="#在github上上传相关的代码库" class="headerlink" title="在github上上传相关的代码库"></a>在github上上传相关的代码库</h3><p>到<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>登录你的账户,执行Create a new repository操作,因为笔者已经创建过UIHelper这个项目,所有会有红色警告,如果你是第一次创建某个项目,不会有该警告.<br><img src="/img/2017/iOS/cocoapods_github.png" alt="在github上上传代码图示"><br>创建项目的时候请注意图中选择的MIT License选项,这个会在添加Cocoapods支持的时候用到.创建完成后,clone到本地,把你写的工具代码放到该文件夹,此时的目录结构如下图所示.<br><img src="/img/2017/iOS/cocoapods_mljg.png" alt="目录结构"></p>
+<h3 id="创建podspec配置文件"><a href="#创建podspec配置文件" class="headerlink" title="创建podspec配置文件"></a>创建podspec配置文件</h3><p>打开终端，cd到刚刚的文件夹目录下，执行创建podspec命令：<br><code>$ pod spec create UIHelper</code><br>此时你会看到文件夹下多了一个UIHelper.podspec文件,如下图所示<br><img src="/img/2017/iOS/cocoapods_mljg2.jpg" alt="目录结构"><br>用vim或者Sublime Text或者其它文本编辑器打开该文件,会发现里面有很多内容,看起来可能毫无头绪,其实里面的很多内容是并没有用的,以下是我整理过后的内容(把不用的东西都删掉,只留下有用的),接下来就以此文件中的内容进行一下重点说明.<br><img src="/img/2017/iOS/cocoapods_podspec.png" alt="podspec文件"><br>当然，我们开发的库中也可能还依赖第三方库，例如SDWebimage，那么，就可以添加如下声明:<br><code>$ s.dependency &quot;SDWebimage&quot;, &quot;~&gt; 1.4&quot;</code><br>如果有多个需要填写多个s.dependency.</p>
+<h3 id="验证是否可用"><a href="#验证是否可用" class="headerlink" title="验证是否可用"></a>验证是否可用</h3><ul>
+<li>验证</li>
+</ul>
+<p>编辑完podspec文件后，需要验证一下这个文件是否可用，如果有WARNING或者ERROR是不可以的，就不能被添加到Spec Repo中，不过xcode的WARNING是可以存在的，进行验证的命令如下：<br><code>$ pod lib lint UIHelper.podspec</code><br>如果有没有Error输出，只有Warning输出，那么可以将这些警告直接忽略<br><code>$ pod lib lint UIHelper.podspec —allow-warnings</code><br>如果出现以下信息说明验证通过<br><img src="/img/2017/iOS/cocoapods_podspec_success.png" alt="验证通过"></p>
+<ul>
+<li>解决错误</li>
+</ul>
+<p>在验证podspec的时候，如果直接用pod spec lint xxx.podspec的话，出现错误它只会直接给出一句红色的提示The spec did not pass validation, due to 1 error.告诉你有多少个error和warning，而不会具体的指出你的错误出在哪里，这时候你可以在这句指令后面加上参数–verbose<br><code>$ pod lib lint UIHelper.podspec --verbose</code><br>这样就会告诉你具体的错误信息。然后就可以根据它提示的具体错误信息去解决问题了。**<br>在执行校验命令时如果出现类似<code>fatal error: &#39;UIKit/UIKit.h&#39; file not found</code>这样的错误，这里笔者提供2种解决方案,供大家参考。</p>
+<ol>
+<li>在podspec配置文件里，修改 s.framework选项如下<br><code>s.frameworks   = &quot;Foundation&quot;</code></li>
+<li>在你的项目里，创建一个pch文件，将所有需要开源的代码库的.h头文件导入到pch文件里。<br>然后执行<code>$ pod lib lint UIHelper.podspec —allow-warnings</code>命令。</li>
+</ol>
+<ul>
+<li>制作相应tag的版本</li>
+</ul>
+<p>所有错误都解决后，接下来我们需要将修改后的最新项目重新push到GitHub上(库文件 和 .spec文件)并制作一个和podspec文件里面对应的tag一致的release包,可以在github里面项目页点击release按照提示直接操作,如下图<br><img src="/img/2017/iOS/cocoapods_tag.jpg" alt="制作tag"><br>也可以使用以下命令直接操作<br><code>$ git tag &#39;1.0.3&#39;</code><br><code>$ git push --tags</code></p>
+<h3 id="推送到CocoaPods"><a href="#推送到CocoaPods" class="headerlink" title="推送到CocoaPods"></a>推送到CocoaPods</h3><p>所有的准备工作都已经完成了，下面就可以将我们的项目push到Cocoapods.<br>执行命令：<code>$ pod trunk push UIHelper.podspec</code><br>如果出现如下图所示的结果,证明推送成功<br><img src="/img/2017/iOS/cocoppods_success.png" alt="推送成功"></p>
+<h3 id="检查是否可用"><a href="#检查是否可用" class="headerlink" title="检查是否可用"></a>检查是否可用</h3><p>上传成功后,可以试一下能否通过pod search命令搜索到自己刚刚上传成功的类库<br><code>$ pod search UIHelper</code><br>如果搜索不到，建议删除本地的CocoaPods的搜索目录，执行以下命令：<br><code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code><br>然后重新执行<code>$ pod search UIHelper</code>命令就可以了.<br>ps:如果你发布成功后，在你自己的电脑上可以search到，在别的电脑上搜不到，建议首先执行<code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code>命令，先删除旧的搜索目录.也可以尝试更新你的pod.<br>最后完成的成果如下图所示<br><img src="/img/2017/iOS/cocoapods_result.png" alt="完成结果"></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>附上以上完成的小项目的github链接:<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>,你可以直接把UIHelper.podspec里面的内容复制粘贴到你项目中的.podspec文件里面,简单修改一下即可.</p>
+]]></content>
+      <categories>
+        <category>开发必备</category>
+      </categories>
+      <tags>
+        <tag>CocoaPods</tag>
       </tags>
   </entry>
 </search>
