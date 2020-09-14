@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>OC语言系列——Category</title>
-    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Category.html</url>
-    <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
-<li>OC提供了一种与众不同的方式–Category，可以动态的为已经存在的类添加新的行为（方法）</li>
-<li>这样可以保证类的原始设计规模大小，功能增加时再逐步扩展</li>
-<li>使用Category对类进行扩展时，不需要创建子类</li>
-<li>Category使用简单的方式，实现了类的相关方法的模块化，把不同的类方法分配到不同的分类文件中</li>
-</ul>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
-<li>在定义类时的某些情况下（例如需求变更），你可能想要为其中的某个或几个类中添加新的方法</li>
-<li>一个类中包含了许多不同种类的方法需要实现，而这些方法需要不同团队的成员实现</li>
-<li>在使用基础类库中的类时，有可能希望这些类实现一些自己需要的方法，比如写个NSString+JSON.h为NSString这个类拓展一些解析JSON的方法</li>
-</ul>
-<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><ul>
-<li>Category可以访问原始类的实例变量，但不能添加变量，如果想添加变量，可以考虑通过继承创建子类</li>
-<li>Category可以重载原始类的方法，但不推荐这么做，因为它是直接替换掉原来的方法，这么做的后果是再也不能访问原来的方法。如果确实需要重载，正确的选择是创建子类</li>
-</ul>
-<h2 id="类的私有方法"><a href="#类的私有方法" class="headerlink" title="类的私有方法"></a>类的私有方法</h2><ul>
-<li>第一种方式：直接在.m文件中写方法实现，不要在.h文件中进行方法声明</li>
-<li>第二种方式：在.m文件中定义一个Category，在Category中声明一些方法，然后在@implementation跟@end之间作方法实现</li>
-</ul>
-<h2 id="与类扩展-extension-的区别"><a href="#与类扩展-extension-的区别" class="headerlink" title="与类扩展(extension)的区别"></a>与类扩展(extension)的区别</h2><p>类扩展(extension）是category的一个特例，有时候也被称为<code>匿名分类</code>。它的作用是为一个类添加一些私有的成员变量和方法。</p>
-<ul>
-<li>和分类不同，类扩展即可以声明成员变量又可以声明方法。</li>
-<li>类扩展可以定义在.m文件中，这种扩展方式中定义的变量都是私有的，也可以定义在.h文件中，这样定义的代码就是共有的，类扩展在.m文件中声明私有方法是非常好的方式。</li>
-<li>类扩展中添加的新方法，一定要实现。Category中没有这种限制。</li>
-</ul>
-<h2 id="Category中为什么不能添加属性？"><a href="#Category中为什么不能添加属性？" class="headerlink" title="Category中为什么不能添加属性？"></a>Category中为什么不能添加属性？</h2><p>在分类里使用@property声明属性，只是将该属性添加到该类的属性列表，并声明了setter和getter方法，但是没有生成相应的成员变量，也没有实现setter和getter方法（可以用runtime机制在程序运行时打印该类的所有属性和方法，可以发现并没有为分类中的属性生成带下划线的同名成员变量）。所以说分类不能添加属性。<code>Category中不能添加属性的本质是Category中不允许添加成员变量</code>。</p>
-<h2 id="Category如何添加成员变量"><a href="#Category如何添加成员变量" class="headerlink" title="Category如何添加成员变量"></a>Category如何添加成员变量</h2><p>虽然上面说Category不能添加属性，但是我们可以在分类的.h文件中使用@property声明属性后，在.m中手动的实现setter和getter方法，并且用runtime机制在程序运行时动态的为该属性关联对象，可以认为给这个类添加上了属性。</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Objective-C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OC语言系列——Block</title>
     <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Block.html</url>
     <content><![CDATA[<p><img src="/img/2018/OC/block.jpg" alt></p>
@@ -229,6 +190,45 @@ __block在ARC下只有一个作用
       </tags>
   </entry>
   <entry>
+    <title>OC语言系列——Category</title>
+    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Category.html</url>
+    <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>OC提供了一种与众不同的方式–Category，可以动态的为已经存在的类添加新的行为（方法）</li>
+<li>这样可以保证类的原始设计规模大小，功能增加时再逐步扩展</li>
+<li>使用Category对类进行扩展时，不需要创建子类</li>
+<li>Category使用简单的方式，实现了类的相关方法的模块化，把不同的类方法分配到不同的分类文件中</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>在定义类时的某些情况下（例如需求变更），你可能想要为其中的某个或几个类中添加新的方法</li>
+<li>一个类中包含了许多不同种类的方法需要实现，而这些方法需要不同团队的成员实现</li>
+<li>在使用基础类库中的类时，有可能希望这些类实现一些自己需要的方法，比如写个NSString+JSON.h为NSString这个类拓展一些解析JSON的方法</li>
+</ul>
+<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><ul>
+<li>Category可以访问原始类的实例变量，但不能添加变量，如果想添加变量，可以考虑通过继承创建子类</li>
+<li>Category可以重载原始类的方法，但不推荐这么做，因为它是直接替换掉原来的方法，这么做的后果是再也不能访问原来的方法。如果确实需要重载，正确的选择是创建子类</li>
+</ul>
+<h2 id="类的私有方法"><a href="#类的私有方法" class="headerlink" title="类的私有方法"></a>类的私有方法</h2><ul>
+<li>第一种方式：直接在.m文件中写方法实现，不要在.h文件中进行方法声明</li>
+<li>第二种方式：在.m文件中定义一个Category，在Category中声明一些方法，然后在@implementation跟@end之间作方法实现</li>
+</ul>
+<h2 id="与类扩展-extension-的区别"><a href="#与类扩展-extension-的区别" class="headerlink" title="与类扩展(extension)的区别"></a>与类扩展(extension)的区别</h2><p>类扩展(extension）是category的一个特例，有时候也被称为<code>匿名分类</code>。它的作用是为一个类添加一些私有的成员变量和方法。</p>
+<ul>
+<li>和分类不同，类扩展即可以声明成员变量又可以声明方法。</li>
+<li>类扩展可以定义在.m文件中，这种扩展方式中定义的变量都是私有的，也可以定义在.h文件中，这样定义的代码就是共有的，类扩展在.m文件中声明私有方法是非常好的方式。</li>
+<li>类扩展中添加的新方法，一定要实现。Category中没有这种限制。</li>
+</ul>
+<h2 id="Category中为什么不能添加属性？"><a href="#Category中为什么不能添加属性？" class="headerlink" title="Category中为什么不能添加属性？"></a>Category中为什么不能添加属性？</h2><p>在分类里使用@property声明属性，只是将该属性添加到该类的属性列表，并声明了setter和getter方法，但是没有生成相应的成员变量，也没有实现setter和getter方法（可以用runtime机制在程序运行时打印该类的所有属性和方法，可以发现并没有为分类中的属性生成带下划线的同名成员变量）。所以说分类不能添加属性。<code>Category中不能添加属性的本质是Category中不允许添加成员变量</code>。</p>
+<h2 id="Category如何添加成员变量"><a href="#Category如何添加成员变量" class="headerlink" title="Category如何添加成员变量"></a>Category如何添加成员变量</h2><p>虽然上面说Category不能添加属性，但是我们可以在分类的.h文件中使用@property声明属性后，在.m中手动的实现setter和getter方法，并且用runtime机制在程序运行时动态的为该属性关联对象，可以认为给这个类添加上了属性。</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OC语言系列——Protocol(协议)及Delegate(委托代理)</title>
     <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Protocol(%E5%8D%8F%E8%AE%AE)%E5%8F%8ADelegate(%E5%A7%94%E6%89%98%E4%BB%A3%E7%90%86).html</url>
     <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt><br>因为Objective-C是不支持多继承的，所以很多时候都是用Protocol代替。Protocol（协议）只是定义公用的一套接口，但不提供具体的实现方法。当一个类要使用某个Protocol（协议）时，就必须要遵守协议，实现协议需要用到委托代理（Delegate）。<br>Protocol（协议）的作用：</p>
@@ -252,6 +252,19 @@ if([stu respondsToSelector:@selector(方法名)]){
 <blockquote>
 <p>1、当需要定义一套公用的接口，实现方法可以是不同的时候，可以使用Protocol协议。<br>2、当需要进行类与类之间的传值时，可以基于Protocol协议，使用代理设计模式进行传值。</p>
 </blockquote>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OC语言系列——关于变量</title>
+    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8F.html</url>
+    <content><![CDATA[<p>变量可以分为全局变量、静态全局变量、静态局部变量和局部变量</p>
+<p>按存储区域分：全局变量、静态全局变量和静态局部变量都存放在内存的全局数据区，局部变量存放在内存的栈区<br>按作用域分：全局变量在整个工程文件内都有效；静态全局变量只在定义它的文件内有效；静态局部变量只在定义它的函数内有效，只是程序仅分配一次内存，函数返回后，该变量不会消失；局部变量在定义它的函数内有效，但是函数返回后失效。</p>
 ]]></content>
       <categories>
         <category>iOS</category>
@@ -393,19 +406,6 @@ if([stu respondsToSelector:@selector(方法名)]){
       </tags>
   </entry>
   <entry>
-    <title>OC语言系列——关于变量</title>
-    <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8F.html</url>
-    <content><![CDATA[<p>变量可以分为全局变量、静态全局变量、静态局部变量和局部变量</p>
-<p>按存储区域分：全局变量、静态全局变量和静态局部变量都存放在内存的全局数据区，局部变量存放在内存的栈区<br>按作用域分：全局变量在整个工程文件内都有效；静态全局变量只在定义它的文件内有效；静态局部变量只在定义它的函数内有效，只是程序仅分配一次内存，函数返回后，该变量不会消失；局部变量在定义它的函数内有效，但是函数返回后失效。</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Objective-C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OC语言系列——基础篇</title>
     <url>/iOS/OC%E5%9F%BA%E7%A1%80/OC%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%AF%87.html</url>
     <content><![CDATA[<p><img src="/img/2018/OC/logo.jpg" alt>    </p>
@@ -507,6 +507,18 @@ if([stu respondsToSelector:@selector(方法名)]){
       </tags>
   </entry>
   <entry>
+    <title>测试</title>
+    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/%E6%B5%8B%E8%AF%95.html</url>
+    <content><![CDATA[<p>晚安！！！</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深入理解iOS中的frame和bounds</title>
     <url>/iOS/OC%E8%BF%9B%E9%98%B6/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3iOS%E4%B8%AD%E7%9A%84frame%E5%92%8Cbounds.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在iOS开发界面的过程中，frame和bounds是两个非常常用的属性，这是两个非常容易混淆的概念，我们虽然经常用，但如果不清楚其原理，遇到了一些莫名其妙的问题可能会使我们不知所措，本来就将通过两个特殊场景来详细介绍一下二者的本质及区别。</p>
@@ -525,6 +537,45 @@ if([stu respondsToSelector:@selector(方法名)]){
       </categories>
       <tags>
         <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS 开发技巧 - 实时访问真机沙盒文件</title>
+    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/iOS-%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7-%E5%AE%9E%E6%97%B6%E8%AE%BF%E9%97%AE%E7%9C%9F%E6%9C%BA%E6%B2%99%E7%9B%92%E6%96%87%E4%BB%B6.html</url>
+    <content><![CDATA[<h3 id="1-想要解决的问题"><a href="#1-想要解决的问题" class="headerlink" title="1.想要解决的问题"></a>1.想要解决的问题</h3><blockquote>
+<p>iOS开发过程中经常需要访问沙盒文件来调试持久化文件,数据库文件,缓存文件等.模拟器一般可以通过<br><a href="https://simpholders.com/" target="_blank" rel="noopener">SimPholders</a>或者<a href="https://github.com/dsmelov/simsim" target="_blank" rel="noopener">simsim</a>等来方便的访问沙盒.但是真机并没有一个方便快捷的访问修改方法,因此,很多时候,我们需要测试沙盒的时候不得不去使用模拟器来替代真机.那么有没有什么方法去直接<code>访问真机的沙盒</code>呢?</p>
+</blockquote>
+<h3 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2.解决方案"></a>2.解决方案</h3><p>说到访问真机沙盒,首先要给大家介绍一款框架<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">GCDWebServer</a>,利用这款框架,你可以很方便的用<code>浏览器</code>实时的访问你真机的沙盒.</p>
+<h3 id="3-集成方法"><a href="#3-集成方法" class="headerlink" title="3.集成方法"></a>3.集成方法</h3><p>方案一. 可以用过cocoapods集成<br>方案二. 可以用过手动集成</p>
+<h3 id="4-集成步骤"><a href="#4-集成步骤" class="headerlink" title="4.集成步骤"></a>4.集成步骤</h3><p>由于笔者是通过手动集成的,这里着重介绍下<code>手动集成</code>方案,通过cocoapods集成方法大同小异,具体可以看官方文档</p>
+<ol>
+<li>首先在github上下载<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">源码</a></li>
+<li>然后把GCDWebServer和GCDWebUploader这两个文件夹拖到项目中<br><img src="/img/2017/iOS/skill_shahe_step2.jpg" alt="步骤2"></li>
+<li>在Target &gt; Build Phases &gt; Link Binary With Libraries里面加入<code>libz.tbd</code>库</li>
+<li>在Target &gt; Build Settings &gt; header_search_paths里面添加<code>$(SDKROOT)/usr/include/libxml2</code></li>
+<li><p>在AppDelegate.m里面引入头文件</p>
+<pre><code>#import &quot;HCViewController.h&quot;
+#import &quot;GCDWebUploader.h&quot;
+</code></pre></li>
+<li><p>在AppDelegate.m的- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions方法中添加如下代码</p>
+<pre><code>//1.想要访问的沙盒路径
+NSString *myDocPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+//2.初始化服务器
+_server = [[GCDWebUploader alloc] initWithUploadDirectory:myDocPath];
+//3.启动服务器(port代表端口号)
+[_server startWithPort:9090 bonjourName:@&quot;&quot;];
+
+//other code……
+</code></pre></li>
+<li>运行项目,如果你在控制台看到如下信息,那么恭喜你,你已经成功了<br><img src="/img/2017/iOS/skill_shahe_result.jpg" alt="运行结果"></li>
+<li>接下来只需要在浏览器中输入控制台打印出来的路径(输入IP那个)就可以在浏览器中访问你APP的沙盒了<br><img src="/img/2017/iOS/skill_shahe.png" alt="效果演示"></li>
+</ol>
+<h3 id="接下来尽情的享受你的沙盒之旅吧"><a href="#接下来尽情的享受你的沙盒之旅吧" class="headerlink" title="接下来尽情的享受你的沙盒之旅吧!"></a>接下来尽情的享受你的沙盒之旅吧!</h3>]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>沙盒</tag>
       </tags>
   </entry>
   <entry>
@@ -614,82 +665,27 @@ if([stu respondsToSelector:@selector(方法名)]){
       </tags>
   </entry>
   <entry>
-    <title>iOS 开发技巧 - 实时访问真机沙盒文件</title>
-    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/iOS-%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7-%E5%AE%9E%E6%97%B6%E8%AE%BF%E9%97%AE%E7%9C%9F%E6%9C%BA%E6%B2%99%E7%9B%92%E6%96%87%E4%BB%B6.html</url>
-    <content><![CDATA[<h3 id="1-想要解决的问题"><a href="#1-想要解决的问题" class="headerlink" title="1.想要解决的问题"></a>1.想要解决的问题</h3><blockquote>
-<p>iOS开发过程中经常需要访问沙盒文件来调试持久化文件,数据库文件,缓存文件等.模拟器一般可以通过<br><a href="https://simpholders.com/" target="_blank" rel="noopener">SimPholders</a>或者<a href="https://github.com/dsmelov/simsim" target="_blank" rel="noopener">simsim</a>等来方便的访问沙盒.但是真机并没有一个方便快捷的访问修改方法,因此,很多时候,我们需要测试沙盒的时候不得不去使用模拟器来替代真机.那么有没有什么方法去直接<code>访问真机的沙盒</code>呢?</p>
-</blockquote>
-<h3 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2.解决方案"></a>2.解决方案</h3><p>说到访问真机沙盒,首先要给大家介绍一款框架<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">GCDWebServer</a>,利用这款框架,你可以很方便的用<code>浏览器</code>实时的访问你真机的沙盒.</p>
-<h3 id="3-集成方法"><a href="#3-集成方法" class="headerlink" title="3.集成方法"></a>3.集成方法</h3><p>方案一. 可以用过cocoapods集成<br>方案二. 可以用过手动集成</p>
-<h3 id="4-集成步骤"><a href="#4-集成步骤" class="headerlink" title="4.集成步骤"></a>4.集成步骤</h3><p>由于笔者是通过手动集成的,这里着重介绍下<code>手动集成</code>方案,通过cocoapods集成方法大同小异,具体可以看官方文档</p>
-<ol>
-<li>首先在github上下载<a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">源码</a></li>
-<li>然后把GCDWebServer和GCDWebUploader这两个文件夹拖到项目中<br><img src="/img/2017/iOS/skill_shahe_step2.jpg" alt="步骤2"></li>
-<li>在Target &gt; Build Phases &gt; Link Binary With Libraries里面加入<code>libz.tbd</code>库</li>
-<li>在Target &gt; Build Settings &gt; header_search_paths里面添加<code>$(SDKROOT)/usr/include/libxml2</code></li>
-<li><p>在AppDelegate.m里面引入头文件</p>
-<pre><code>#import &quot;HCViewController.h&quot;
-#import &quot;GCDWebUploader.h&quot;
-</code></pre></li>
-<li><p>在AppDelegate.m的- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions方法中添加如下代码</p>
-<pre><code>//1.想要访问的沙盒路径
-NSString *myDocPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-//2.初始化服务器
-_server = [[GCDWebUploader alloc] initWithUploadDirectory:myDocPath];
-//3.启动服务器(port代表端口号)
-[_server startWithPort:9090 bonjourName:@&quot;&quot;];
-
-//other code……
-</code></pre></li>
-<li>运行项目,如果你在控制台看到如下信息,那么恭喜你,你已经成功了<br><img src="/img/2017/iOS/skill_shahe_result.jpg" alt="运行结果"></li>
-<li>接下来只需要在浏览器中输入控制台打印出来的路径(输入IP那个)就可以在浏览器中访问你APP的沙盒了<br><img src="/img/2017/iOS/skill_shahe.png" alt="效果演示"></li>
-</ol>
-<h3 id="接下来尽情的享受你的沙盒之旅吧"><a href="#接下来尽情的享受你的沙盒之旅吧" class="headerlink" title="接下来尽情的享受你的沙盒之旅吧!"></a>接下来尽情的享受你的沙盒之旅吧!</h3>]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>沙盒</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/iOS/iOS%E6%8A%80%E5%B7%A7/%E6%B5%8B%E8%AF%95.html</url>
-    <content><![CDATA[<p>晚安！！！</p>
+    <title>如何在Mac上方便的启用Http Server</title>
+    <url>/Server/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%96%B9%E4%BE%BF%E7%9A%84%E5%90%AF%E7%94%A8Http-Server.html</url>
+    <content><![CDATA[<p>我们在本地调试Html或者php等后台程序的时候,经常需要启动一个本地Web服务器,对于不太会配置Apache等服务器的童鞋,我专门写过一篇文章教你<a href="http://localhost:4000/server-side/%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html" target="_blank" rel="noopener">如何把你的电脑配置成本地服务器</a>.</p>
+<p>所谓条条道路通罗马,解决问题的方案永远不止一个,本文就将带你用另一种简洁的方式去解决这个问题.<br><code>在Python或PHP命令行下启用Http Server。</code></p>
+<p>由于在Mac系统下，Python和Php都是默认安装好的，所以不需要额外的软件支持。具体方法如下：</p>
+<h4 id="方法一：不支持PHP"><a href="#方法一：不支持PHP" class="headerlink" title="方法一：不支持PHP"></a>方法一：不支持PHP</h4><p>这一方法的前提是，系统已经默认安装了Python，所以可以利用Python启用Http服务器。 步骤：</p>
+<pre><code>$cd /projectpath
+$python -m SimpleHTTPServer 9999
+</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可,此方法仅适用于提供html等文件服务，不支持运行PHP脚本.</p>
+<h4 id="方法二-支持PHP"><a href="#方法二-支持PHP" class="headerlink" title="方法二:支持PHP"></a>方法二:支持PHP</h4><pre><code>$cd /projectpath
+$php -S localhost:9999
+</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可访问.该方法支持运行PHP脚本.</p>
+<h4 id="停止server"><a href="#停止server" class="headerlink" title="停止server"></a>停止server</h4><p><code>在终端按control+C</code></p>
+<h4 id="其他系统"><a href="#其他系统" class="headerlink" title="其他系统"></a>其他系统</h4><p>由于Python和PHP都是跨平台的，在其他系统上，只需要安装好这两个运行环境，就可以使用同样的方法.</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><p>以上生成的链接有的端口经过笔者的测试可能无法访问,如果你启动服务器后在浏览器中输入对应的链接发现不可用,可以尝试换一个端口.</p>
 ]]></content>
       <categories>
-        <category>iOS</category>
+        <category>Server</category>
       </categories>
       <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在IDEA中创建web项目并部署到Tomcat中</title>
-    <url>/java/java/%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E5%88%9B%E5%BB%BAweb%E9%A1%B9%E7%9B%AE%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0Tomcat%E4%B8%AD.html</url>
-    <content><![CDATA[<h2 id="新建Web工程"><a href="#新建Web工程" class="headerlink" title="新建Web工程"></a>新建Web工程</h2><p><img src="http://images.astudyer.com/new_project.jpg" alt></p>
-<h2 id="创建classes和lib文件"><a href="#创建classes和lib文件" class="headerlink" title="创建classes和lib文件"></a>创建classes和lib文件</h2><p>classes用来存放编译后输出的class文件，lib用于存放第三方jar包<br><img src="http://images.astudyer.com/classes_lib.jpg" alt></p>
-<h2 id="配置文件夹路径"><a href="#配置文件夹路径" class="headerlink" title="配置文件夹路径"></a>配置文件夹路径</h2><ol>
-<li>File -&gt; Project Structure<br><img src="http://images.astudyer.com/file_project_structure.jpg" alt></li>
-<li>Modules -&gt; Paths -&gt; Use module compile output path<br>将Output path和Test output path都选择为刚刚创建的classes文件夹<br><img src="http://images.astudyer.com/java_jsp_output_path.jpg" alt></li>
-<li>在当前界面选择Dependencies -&gt; 选择Module SDK -&gt; 点击下面的“+”号 -&gt; 选择1 “Jars or Directories” -&gt; 选择刚刚创建的lib文件夹 -&gt; 选择“Jar Directory” -&gt; OK -&gt; Apply -&gt; OK<br><img src="http://images.astudyer.com/java_jsp_dependencies.jpg" alt><br><img src="http://images.astudyer.com/java_jsp_jar_directory.jpg" alt></li>
-</ol>
-<h2 id="配置Tomcat容器"><a href="#配置Tomcat容器" class="headerlink" title="配置Tomcat容器"></a>配置Tomcat容器</h2><ol>
-<li>打开菜单Run -&gt; 选择Edit Configuration</li>
-<li>点击“+”号 -&gt; 选择“Tomcat Server” -&gt; 选择“Local”<br><img src="http://images.astudyer.com/java_jsp_run_configurations.jpg" alt></li>
-<li>在”Name”处输入新的服务名，点击”Application server”后面的”Configure…”，弹出Tomcat Server窗口，选择本地安装的Tomcat目录 -&gt; OK </li>
-<li>取消勾选”After launch”，设置”HTTP port”和”JMX port”（默认值即可），点击 Apply -&gt; OK， 至此Tomcat配置完成<br><img src="http://images.astudyer.com/java_jsp_tomcat_server.jpg" alt></li>
-</ol>
-<h2 id="在Tomcat中部署并运行项目"><a href="#在Tomcat中部署并运行项目" class="headerlink" title="在Tomcat中部署并运行项目"></a>在Tomcat中部署并运行项目</h2><p>Run -&gt; Edit Configurations，进入”Run/Debug Configurations”窗口 -&gt; 选择刚刚建立的Tomcat容器 -&gt; 选择Deployment -&gt; 点击右边的“+”号 -&gt; 选择Artifact -&gt; 选择web项目 -&gt; Application context可以填“/hello”(此处随意，可以填写项目名，也可以不填) -&gt; Apply -&gt; OK<br><img src="http://images.astudyer.com/java_jsp_tomcat_deployment.jpg" alt></p>
-<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><p>修改index.jsp页面，然后直接在tomcat上面运行这个项目就可以了，运行成功后在浏览器中输入<a href="http://localhost:8080/javaweb/" target="_blank" rel="noopener">http://localhost:8080/javaweb/</a>就可以查看运行效果了<br><img src="http://images.astudyer.com/java_jsp_run_result.jpg" alt></p>
-<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p><img src="http://images.astudyer.com/java_jsp_result_failure.jpg" alt><br>运行后如果出现以上错误，原因是在终端里面启动了Tomcat，在idea中又再次启动后冲突了。只需要把终端里面启动的Tomcat关闭后再次运行项目即可</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>[1].<a href="https://www.cnblogs.com/1314wamm/p/7471164.html" target="_blank" rel="noopener">如何在IDEA中创建web项目并且部署到Tomcat中</a><br>[2].<a href="https://www.cnblogs.com/tongfukezhan/p/7729043.html" target="_blank" rel="noopener">Mac OS中IDEA配置完Tomcat后启动显示404</a></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>JSP基础</tag>
+        <tag>Server</tag>
       </tags>
   </entry>
   <entry>
@@ -763,30 +759,6 @@ git push
       </categories>
       <tags>
         <tag>踩坑</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在Mac上方便的启用Http Server</title>
-    <url>/Server/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E6%96%B9%E4%BE%BF%E7%9A%84%E5%90%AF%E7%94%A8Http-Server.html</url>
-    <content><![CDATA[<p>我们在本地调试Html或者php等后台程序的时候,经常需要启动一个本地Web服务器,对于不太会配置Apache等服务器的童鞋,我专门写过一篇文章教你<a href="http://localhost:4000/server-side/%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.html" target="_blank" rel="noopener">如何把你的电脑配置成本地服务器</a>.</p>
-<p>所谓条条道路通罗马,解决问题的方案永远不止一个,本文就将带你用另一种简洁的方式去解决这个问题.<br><code>在Python或PHP命令行下启用Http Server。</code></p>
-<p>由于在Mac系统下，Python和Php都是默认安装好的，所以不需要额外的软件支持。具体方法如下：</p>
-<h4 id="方法一：不支持PHP"><a href="#方法一：不支持PHP" class="headerlink" title="方法一：不支持PHP"></a>方法一：不支持PHP</h4><p>这一方法的前提是，系统已经默认安装了Python，所以可以利用Python启用Http服务器。 步骤：</p>
-<pre><code>$cd /projectpath
-$python -m SimpleHTTPServer 9999
-</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可,此方法仅适用于提供html等文件服务，不支持运行PHP脚本.</p>
-<h4 id="方法二-支持PHP"><a href="#方法二-支持PHP" class="headerlink" title="方法二:支持PHP"></a>方法二:支持PHP</h4><pre><code>$cd /projectpath
-$php -S localhost:9999
-</code></pre><p>然后，在浏览器输入<code>http://localhost:9999</code>即可访问.该方法支持运行PHP脚本.</p>
-<h4 id="停止server"><a href="#停止server" class="headerlink" title="停止server"></a>停止server</h4><p><code>在终端按control+C</code></p>
-<h4 id="其他系统"><a href="#其他系统" class="headerlink" title="其他系统"></a>其他系统</h4><p>由于Python和PHP都是跨平台的，在其他系统上，只需要安装好这两个运行环境，就可以使用同样的方法.</p>
-<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><p>以上生成的链接有的端口经过笔者的测试可能无法访问,如果你启动服务器后在浏览器中输入对应的链接发现不可用,可以尝试换一个端口.</p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
       </tags>
   </entry>
   <entry>
@@ -883,6 +855,50 @@ return 0;
       </tags>
   </entry>
   <entry>
+    <title>如何把自己写的框架上传至CocoaPods</title>
+    <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E7%BB%84%E4%BB%B6%E5%8C%96/%E5%A6%82%E4%BD%95%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E6%A1%86%E6%9E%B6%E4%B8%8A%E4%BC%A0%E8%87%B3CocoaPods.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名iOS应用开发者，我们在实际工作中经常会用到各种各样的第三方库,比如我们常用的AFNetworking,SDWebimage等.这些类库一般都可以通过一款叫做Cocoapods的工具进行管理，非常的便利。当享受着Cocoapods带给我们的这种便利的同时，你是否想过让自己封装的常用的工具类也添加Cocoapods支持?本文将会一步步揭开CocoaPods的神秘面纱,教你把自己封装的一些工具类上传至CocoaPods,以后你就可以通过CocoaPods来使用自己封装的工具类了,听起来是不是很酷,那么就让我们开始我们的CocoaPods之旅吧.</p>
+<h3 id="Cocoapods介绍"><a href="#Cocoapods介绍" class="headerlink" title="Cocoapods介绍"></a>Cocoapods介绍</h3><p>你来看这篇文章,我相信你肯定已经使用过CocoaPods了吧.就算没用过,起码也至少应该有所了解.<br>但是如果你并不了解CocoaPods是什么东西,以及如何使用,那么这里给你准备了一篇文章<a href="http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/" target="_blank" rel="noopener">用CocoaPods做iOS程序的依赖管理</a>,或者你也可以去自己百度,网上的教程一大堆,这里就不再对此进行相信的介绍了.</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>本文将会以我自己写的一个UI调试小工具<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>为例,来说明把自己写的类库上传至CocoaPods的整个过程.</p>
+<ul>
+<li>注册trunk</li>
+<li>在github上上传相关的代码库</li>
+<li>创建podspec配置文件</li>
+<li>验证是否可用</li>
+<li>推送到CocoaPods</li>
+<li>检查是否可用</li>
+</ul>
+<h3 id="注册trunk"><a href="#注册trunk" class="headerlink" title="注册trunk"></a>注册trunk</h3><p>想让Cocoapods支持你自己的工具代码库，首先需要一个CocoaPods账号。<br>注册命令:<br><code>$ pod trunk register 邮箱地址 ‘用户名’ —description=&#39;描述信息&#39;</code><br>执行以上注册命令后，到你注册邮箱检查一下，一切顺利的话就会受到一份邮件，点击验证链接打开网页。如果出现下面的提示，说明注册成功(如果打开网页太慢的话，建议开vpn)。<br><img src="/img/2017/iOS/register_cocoapods.jpg" alt="注册成功的图示"><br>查看注册信息的命令:<br><code>$ pod trunk me</code><br><img src="/img/2017/iOS/cocoapods_trunk_me.jpg" alt="查看注册信息"></p>
+<h3 id="在github上上传相关的代码库"><a href="#在github上上传相关的代码库" class="headerlink" title="在github上上传相关的代码库"></a>在github上上传相关的代码库</h3><p>到<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>登录你的账户,执行Create a new repository操作,因为笔者已经创建过UIHelper这个项目,所有会有红色警告,如果你是第一次创建某个项目,不会有该警告.<br><img src="/img/2017/iOS/cocoapods_github.png" alt="在github上上传代码图示"><br>创建项目的时候请注意图中选择的MIT License选项,这个会在添加Cocoapods支持的时候用到.创建完成后,clone到本地,把你写的工具代码放到该文件夹,此时的目录结构如下图所示.<br><img src="/img/2017/iOS/cocoapods_mljg.png" alt="目录结构"></p>
+<h3 id="创建podspec配置文件"><a href="#创建podspec配置文件" class="headerlink" title="创建podspec配置文件"></a>创建podspec配置文件</h3><p>打开终端，cd到刚刚的文件夹目录下，执行创建podspec命令：<br><code>$ pod spec create UIHelper</code><br>此时你会看到文件夹下多了一个UIHelper.podspec文件,如下图所示<br><img src="/img/2017/iOS/cocoapods_mljg2.jpg" alt="目录结构"><br>用vim或者Sublime Text或者其它文本编辑器打开该文件,会发现里面有很多内容,看起来可能毫无头绪,其实里面的很多内容是并没有用的,以下是我整理过后的内容(把不用的东西都删掉,只留下有用的),接下来就以此文件中的内容进行一下重点说明.<br><img src="/img/2017/iOS/cocoapods_podspec.png" alt="podspec文件"><br>当然，我们开发的库中也可能还依赖第三方库，例如SDWebimage，那么，就可以添加如下声明:<br><code>$ s.dependency &quot;SDWebimage&quot;, &quot;~&gt; 1.4&quot;</code><br>如果有多个需要填写多个s.dependency.</p>
+<h3 id="验证是否可用"><a href="#验证是否可用" class="headerlink" title="验证是否可用"></a>验证是否可用</h3><ul>
+<li>验证</li>
+</ul>
+<p>编辑完podspec文件后，需要验证一下这个文件是否可用，如果有WARNING或者ERROR是不可以的，就不能被添加到Spec Repo中，不过xcode的WARNING是可以存在的，进行验证的命令如下：<br><code>$ pod lib lint UIHelper.podspec</code><br>如果有没有Error输出，只有Warning输出，那么可以将这些警告直接忽略<br><code>$ pod lib lint UIHelper.podspec —allow-warnings</code><br>如果出现以下信息说明验证通过<br><img src="/img/2017/iOS/cocoapods_podspec_success.png" alt="验证通过"></p>
+<ul>
+<li>解决错误</li>
+</ul>
+<p>在验证podspec的时候，如果直接用pod spec lint xxx.podspec的话，出现错误它只会直接给出一句红色的提示The spec did not pass validation, due to 1 error.告诉你有多少个error和warning，而不会具体的指出你的错误出在哪里，这时候你可以在这句指令后面加上参数–verbose<br><code>$ pod lib lint UIHelper.podspec --verbose</code><br>这样就会告诉你具体的错误信息。然后就可以根据它提示的具体错误信息去解决问题了。**<br>在执行校验命令时如果出现类似<code>fatal error: &#39;UIKit/UIKit.h&#39; file not found</code>这样的错误，这里笔者提供2种解决方案,供大家参考。</p>
+<ol>
+<li>在podspec配置文件里，修改 s.framework选项如下<br><code>s.frameworks   = &quot;Foundation&quot;</code></li>
+<li>在你的项目里，创建一个pch文件，将所有需要开源的代码库的.h头文件导入到pch文件里。<br>然后执行<code>$ pod lib lint UIHelper.podspec —allow-warnings</code>命令。</li>
+</ol>
+<ul>
+<li>制作相应tag的版本</li>
+</ul>
+<p>所有错误都解决后，接下来我们需要将修改后的最新项目重新push到GitHub上(库文件 和 .spec文件)并制作一个和podspec文件里面对应的tag一致的release包,可以在github里面项目页点击release按照提示直接操作,如下图<br><img src="/img/2017/iOS/cocoapods_tag.jpg" alt="制作tag"><br>也可以使用以下命令直接操作<br><code>$ git tag &#39;1.0.3&#39;</code><br><code>$ git push --tags</code></p>
+<h3 id="推送到CocoaPods"><a href="#推送到CocoaPods" class="headerlink" title="推送到CocoaPods"></a>推送到CocoaPods</h3><p>所有的准备工作都已经完成了，下面就可以将我们的项目push到Cocoapods.<br>执行命令：<code>$ pod trunk push UIHelper.podspec</code><br>如果出现如下图所示的结果,证明推送成功<br><img src="/img/2017/iOS/cocoppods_success.png" alt="推送成功"></p>
+<h3 id="检查是否可用"><a href="#检查是否可用" class="headerlink" title="检查是否可用"></a>检查是否可用</h3><p>上传成功后,可以试一下能否通过pod search命令搜索到自己刚刚上传成功的类库<br><code>$ pod search UIHelper</code><br>如果搜索不到，建议删除本地的CocoaPods的搜索目录，执行以下命令：<br><code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code><br>然后重新执行<code>$ pod search UIHelper</code>命令就可以了.<br>ps:如果你发布成功后，在你自己的电脑上可以search到，在别的电脑上搜不到，建议首先执行<code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code>命令，先删除旧的搜索目录.也可以尝试更新你的pod.<br>最后完成的成果如下图所示<br><img src="/img/2017/iOS/cocoapods_result.png" alt="完成结果"></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>附上以上完成的小项目的github链接:<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>,你可以直接把UIHelper.podspec里面的内容复制粘贴到你项目中的.podspec文件里面,简单修改一下即可.</p>
+]]></content>
+      <categories>
+        <category>开发必备</category>
+      </categories>
+      <tags>
+        <tag>CocoaPods</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CocoaPods的安装和使用</title>
     <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E7%BB%84%E4%BB%B6%E5%8C%96/CocoaPods%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<p><img src="/img/2018/Tools/cocoapods.jpg" alt></p>
@@ -931,47 +947,31 @@ end
       </tags>
   </entry>
   <entry>
-    <title>如何把自己写的框架上传至CocoaPods</title>
-    <url>/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87/%E7%BB%84%E4%BB%B6%E5%8C%96/%E5%A6%82%E4%BD%95%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E6%A1%86%E6%9E%B6%E4%B8%8A%E4%BC%A0%E8%87%B3CocoaPods.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名iOS应用开发者，我们在实际工作中经常会用到各种各样的第三方库,比如我们常用的AFNetworking,SDWebimage等.这些类库一般都可以通过一款叫做Cocoapods的工具进行管理，非常的便利。当享受着Cocoapods带给我们的这种便利的同时，你是否想过让自己封装的常用的工具类也添加Cocoapods支持?本文将会一步步揭开CocoaPods的神秘面纱,教你把自己封装的一些工具类上传至CocoaPods,以后你就可以通过CocoaPods来使用自己封装的工具类了,听起来是不是很酷,那么就让我们开始我们的CocoaPods之旅吧.</p>
-<h3 id="Cocoapods介绍"><a href="#Cocoapods介绍" class="headerlink" title="Cocoapods介绍"></a>Cocoapods介绍</h3><p>你来看这篇文章,我相信你肯定已经使用过CocoaPods了吧.就算没用过,起码也至少应该有所了解.<br>但是如果你并不了解CocoaPods是什么东西,以及如何使用,那么这里给你准备了一篇文章<a href="http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/" target="_blank" rel="noopener">用CocoaPods做iOS程序的依赖管理</a>,或者你也可以去自己百度,网上的教程一大堆,这里就不再对此进行相信的介绍了.</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>本文将会以我自己写的一个UI调试小工具<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>为例,来说明把自己写的类库上传至CocoaPods的整个过程.</p>
-<ul>
-<li>注册trunk</li>
-<li>在github上上传相关的代码库</li>
-<li>创建podspec配置文件</li>
-<li>验证是否可用</li>
-<li>推送到CocoaPods</li>
-<li>检查是否可用</li>
-</ul>
-<h3 id="注册trunk"><a href="#注册trunk" class="headerlink" title="注册trunk"></a>注册trunk</h3><p>想让Cocoapods支持你自己的工具代码库，首先需要一个CocoaPods账号。<br>注册命令:<br><code>$ pod trunk register 邮箱地址 ‘用户名’ —description=&#39;描述信息&#39;</code><br>执行以上注册命令后，到你注册邮箱检查一下，一切顺利的话就会受到一份邮件，点击验证链接打开网页。如果出现下面的提示，说明注册成功(如果打开网页太慢的话，建议开vpn)。<br><img src="/img/2017/iOS/register_cocoapods.jpg" alt="注册成功的图示"><br>查看注册信息的命令:<br><code>$ pod trunk me</code><br><img src="/img/2017/iOS/cocoapods_trunk_me.jpg" alt="查看注册信息"></p>
-<h3 id="在github上上传相关的代码库"><a href="#在github上上传相关的代码库" class="headerlink" title="在github上上传相关的代码库"></a>在github上上传相关的代码库</h3><p>到<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>登录你的账户,执行Create a new repository操作,因为笔者已经创建过UIHelper这个项目,所有会有红色警告,如果你是第一次创建某个项目,不会有该警告.<br><img src="/img/2017/iOS/cocoapods_github.png" alt="在github上上传代码图示"><br>创建项目的时候请注意图中选择的MIT License选项,这个会在添加Cocoapods支持的时候用到.创建完成后,clone到本地,把你写的工具代码放到该文件夹,此时的目录结构如下图所示.<br><img src="/img/2017/iOS/cocoapods_mljg.png" alt="目录结构"></p>
-<h3 id="创建podspec配置文件"><a href="#创建podspec配置文件" class="headerlink" title="创建podspec配置文件"></a>创建podspec配置文件</h3><p>打开终端，cd到刚刚的文件夹目录下，执行创建podspec命令：<br><code>$ pod spec create UIHelper</code><br>此时你会看到文件夹下多了一个UIHelper.podspec文件,如下图所示<br><img src="/img/2017/iOS/cocoapods_mljg2.jpg" alt="目录结构"><br>用vim或者Sublime Text或者其它文本编辑器打开该文件,会发现里面有很多内容,看起来可能毫无头绪,其实里面的很多内容是并没有用的,以下是我整理过后的内容(把不用的东西都删掉,只留下有用的),接下来就以此文件中的内容进行一下重点说明.<br><img src="/img/2017/iOS/cocoapods_podspec.png" alt="podspec文件"><br>当然，我们开发的库中也可能还依赖第三方库，例如SDWebimage，那么，就可以添加如下声明:<br><code>$ s.dependency &quot;SDWebimage&quot;, &quot;~&gt; 1.4&quot;</code><br>如果有多个需要填写多个s.dependency.</p>
-<h3 id="验证是否可用"><a href="#验证是否可用" class="headerlink" title="验证是否可用"></a>验证是否可用</h3><ul>
-<li>验证</li>
-</ul>
-<p>编辑完podspec文件后，需要验证一下这个文件是否可用，如果有WARNING或者ERROR是不可以的，就不能被添加到Spec Repo中，不过xcode的WARNING是可以存在的，进行验证的命令如下：<br><code>$ pod lib lint UIHelper.podspec</code><br>如果有没有Error输出，只有Warning输出，那么可以将这些警告直接忽略<br><code>$ pod lib lint UIHelper.podspec —allow-warnings</code><br>如果出现以下信息说明验证通过<br><img src="/img/2017/iOS/cocoapods_podspec_success.png" alt="验证通过"></p>
-<ul>
-<li>解决错误</li>
-</ul>
-<p>在验证podspec的时候，如果直接用pod spec lint xxx.podspec的话，出现错误它只会直接给出一句红色的提示The spec did not pass validation, due to 1 error.告诉你有多少个error和warning，而不会具体的指出你的错误出在哪里，这时候你可以在这句指令后面加上参数–verbose<br><code>$ pod lib lint UIHelper.podspec --verbose</code><br>这样就会告诉你具体的错误信息。然后就可以根据它提示的具体错误信息去解决问题了。**<br>在执行校验命令时如果出现类似<code>fatal error: &#39;UIKit/UIKit.h&#39; file not found</code>这样的错误，这里笔者提供2种解决方案,供大家参考。</p>
-<ol>
-<li>在podspec配置文件里，修改 s.framework选项如下<br><code>s.frameworks   = &quot;Foundation&quot;</code></li>
-<li>在你的项目里，创建一个pch文件，将所有需要开源的代码库的.h头文件导入到pch文件里。<br>然后执行<code>$ pod lib lint UIHelper.podspec —allow-warnings</code>命令。</li>
+    <title>如何在IDEA中创建web项目并部署到Tomcat中</title>
+    <url>/java/java/%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E5%88%9B%E5%BB%BAweb%E9%A1%B9%E7%9B%AE%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0Tomcat%E4%B8%AD.html</url>
+    <content><![CDATA[<h2 id="新建Web工程"><a href="#新建Web工程" class="headerlink" title="新建Web工程"></a>新建Web工程</h2><p><img src="http://images.astudyer.com/new_project.jpg" alt></p>
+<h2 id="创建classes和lib文件"><a href="#创建classes和lib文件" class="headerlink" title="创建classes和lib文件"></a>创建classes和lib文件</h2><p>classes用来存放编译后输出的class文件，lib用于存放第三方jar包<br><img src="http://images.astudyer.com/classes_lib.jpg" alt></p>
+<h2 id="配置文件夹路径"><a href="#配置文件夹路径" class="headerlink" title="配置文件夹路径"></a>配置文件夹路径</h2><ol>
+<li>File -&gt; Project Structure<br><img src="http://images.astudyer.com/file_project_structure.jpg" alt></li>
+<li>Modules -&gt; Paths -&gt; Use module compile output path<br>将Output path和Test output path都选择为刚刚创建的classes文件夹<br><img src="http://images.astudyer.com/java_jsp_output_path.jpg" alt></li>
+<li>在当前界面选择Dependencies -&gt; 选择Module SDK -&gt; 点击下面的“+”号 -&gt; 选择1 “Jars or Directories” -&gt; 选择刚刚创建的lib文件夹 -&gt; 选择“Jar Directory” -&gt; OK -&gt; Apply -&gt; OK<br><img src="http://images.astudyer.com/java_jsp_dependencies.jpg" alt><br><img src="http://images.astudyer.com/java_jsp_jar_directory.jpg" alt></li>
 </ol>
-<ul>
-<li>制作相应tag的版本</li>
-</ul>
-<p>所有错误都解决后，接下来我们需要将修改后的最新项目重新push到GitHub上(库文件 和 .spec文件)并制作一个和podspec文件里面对应的tag一致的release包,可以在github里面项目页点击release按照提示直接操作,如下图<br><img src="/img/2017/iOS/cocoapods_tag.jpg" alt="制作tag"><br>也可以使用以下命令直接操作<br><code>$ git tag &#39;1.0.3&#39;</code><br><code>$ git push --tags</code></p>
-<h3 id="推送到CocoaPods"><a href="#推送到CocoaPods" class="headerlink" title="推送到CocoaPods"></a>推送到CocoaPods</h3><p>所有的准备工作都已经完成了，下面就可以将我们的项目push到Cocoapods.<br>执行命令：<code>$ pod trunk push UIHelper.podspec</code><br>如果出现如下图所示的结果,证明推送成功<br><img src="/img/2017/iOS/cocoppods_success.png" alt="推送成功"></p>
-<h3 id="检查是否可用"><a href="#检查是否可用" class="headerlink" title="检查是否可用"></a>检查是否可用</h3><p>上传成功后,可以试一下能否通过pod search命令搜索到自己刚刚上传成功的类库<br><code>$ pod search UIHelper</code><br>如果搜索不到，建议删除本地的CocoaPods的搜索目录，执行以下命令：<br><code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code><br>然后重新执行<code>$ pod search UIHelper</code>命令就可以了.<br>ps:如果你发布成功后，在你自己的电脑上可以search到，在别的电脑上搜不到，建议首先执行<code>$ rm ~/Library/Caches/CocoaPods/search_index.json</code>命令，先删除旧的搜索目录.也可以尝试更新你的pod.<br>最后完成的成果如下图所示<br><img src="/img/2017/iOS/cocoapods_result.png" alt="完成结果"></p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>附上以上完成的小项目的github链接:<a href="https://github.com/hclib/UIHelper" target="_blank" rel="noopener">UIHelper</a>,你可以直接把UIHelper.podspec里面的内容复制粘贴到你项目中的.podspec文件里面,简单修改一下即可.</p>
+<h2 id="配置Tomcat容器"><a href="#配置Tomcat容器" class="headerlink" title="配置Tomcat容器"></a>配置Tomcat容器</h2><ol>
+<li>打开菜单Run -&gt; 选择Edit Configuration</li>
+<li>点击“+”号 -&gt; 选择“Tomcat Server” -&gt; 选择“Local”<br><img src="http://images.astudyer.com/java_jsp_run_configurations.jpg" alt></li>
+<li>在”Name”处输入新的服务名，点击”Application server”后面的”Configure…”，弹出Tomcat Server窗口，选择本地安装的Tomcat目录 -&gt; OK </li>
+<li>取消勾选”After launch”，设置”HTTP port”和”JMX port”（默认值即可），点击 Apply -&gt; OK， 至此Tomcat配置完成<br><img src="http://images.astudyer.com/java_jsp_tomcat_server.jpg" alt></li>
+</ol>
+<h2 id="在Tomcat中部署并运行项目"><a href="#在Tomcat中部署并运行项目" class="headerlink" title="在Tomcat中部署并运行项目"></a>在Tomcat中部署并运行项目</h2><p>Run -&gt; Edit Configurations，进入”Run/Debug Configurations”窗口 -&gt; 选择刚刚建立的Tomcat容器 -&gt; 选择Deployment -&gt; 点击右边的“+”号 -&gt; 选择Artifact -&gt; 选择web项目 -&gt; Application context可以填“/hello”(此处随意，可以填写项目名，也可以不填) -&gt; Apply -&gt; OK<br><img src="http://images.astudyer.com/java_jsp_tomcat_deployment.jpg" alt></p>
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><p>修改index.jsp页面，然后直接在tomcat上面运行这个项目就可以了，运行成功后在浏览器中输入<a href="http://localhost:8080/javaweb/" target="_blank" rel="noopener">http://localhost:8080/javaweb/</a>就可以查看运行效果了<br><img src="http://images.astudyer.com/java_jsp_run_result.jpg" alt></p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p><img src="http://images.astudyer.com/java_jsp_result_failure.jpg" alt><br>运行后如果出现以上错误，原因是在终端里面启动了Tomcat，在idea中又再次启动后冲突了。只需要把终端里面启动的Tomcat关闭后再次运行项目即可</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>[1].<a href="https://www.cnblogs.com/1314wamm/p/7471164.html" target="_blank" rel="noopener">如何在IDEA中创建web项目并且部署到Tomcat中</a><br>[2].<a href="https://www.cnblogs.com/tongfukezhan/p/7729043.html" target="_blank" rel="noopener">Mac OS中IDEA配置完Tomcat后启动显示404</a></p>
 ]]></content>
       <categories>
-        <category>开发必备</category>
+        <category>java</category>
       </categories>
       <tags>
-        <tag>CocoaPods</tag>
+        <tag>JSP基础</tag>
       </tags>
   </entry>
 </search>
